@@ -4,7 +4,6 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:import/errors",
     "plugin:jsx-a11y/recommended",
     "prettier"
   ],
@@ -14,5 +13,5 @@
       "rules": {}
     }
   ],
-  "plugins": ["import", "jsx-a11y"]
+  "plugins": ["jsx-a11y"]
 }
