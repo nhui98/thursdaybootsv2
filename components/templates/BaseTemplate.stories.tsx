@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import BaseTemplate, { BaseTemplateProps } from "./BaseTemplate";
 import { mockBaseTemplateProps } from "./BaseTemplate.mocks";
