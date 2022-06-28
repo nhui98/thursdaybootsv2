@@ -1,23 +1,27 @@
+import { makeExecutableSchema } from "@graphql-tools/schema";
 import { ApolloServer, gql } from "apollo-server-micro";
+import { merge } from "lodash";
 import { NextApiRequest, NextApiResponse } from "next";
+import {
+  resolvers as productResolvers,
+  typeDef as Product,
+} from "../../graphql/schema/product";
 
-const typeDefs = gql`
+const Query = gql`
   type Query {
-    getTest: String!
+    _empty: String
   }
 `;
 
-const resolvers = {
-  Query: {
-    getTest: () => {
-      return "hello";
-    },
-  },
-};
+const resolvers = {};
+
+const schema = makeExecutableSchema({
+  typeDefs: [Query, Product],
+  resolvers: merge(resolvers, productResolvers),
+});
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
 });
 
 const startServer = server.start();

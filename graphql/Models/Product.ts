@@ -10,15 +10,15 @@ export interface Product {
   altImg: string[];
   sizes: {
     size:
-      | 6
-      | 7
-      | 8
-      | 9
-      | 10
-      | 11
-      | 12
-      | 13
-      | 14
+      | "6"
+      | "7"
+      | "8"
+      | "9"
+      | "10"
+      | "11"
+      | "12"
+      | "13"
+      | "14"
       | "XS"
       | "S"
       | "M"
@@ -47,15 +47,15 @@ const productSchema = new mongoose.Schema<Product>({
         size: {
           type: mongoose.Schema.Types.Mixed,
           enum: [
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
             "XS",
             "S",
             "M",
