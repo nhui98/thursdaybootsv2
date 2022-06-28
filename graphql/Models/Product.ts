@@ -9,7 +9,22 @@ export interface Product {
   mainImg: string;
   altImg: string[];
   sizes: {
-    size: number | string;
+    size:
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | 13
+      | 14
+      | "XS"
+      | "S"
+      | "M"
+      | "L"
+      | "XL"
+      | "XXL";
     stock: number;
   }[];
 }
