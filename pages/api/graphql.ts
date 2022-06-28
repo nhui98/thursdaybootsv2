@@ -10,7 +10,6 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     getTest: () => {
-      console.log("resolver called");
       return "hello";
     },
   },
