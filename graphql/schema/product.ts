@@ -1,10 +1,9 @@
 import { gql } from "apollo-server-micro";
-import Product from "../../graphql/models/Product";
 import dbConnect from "../../utils/dbConnect";
 
 export const typeDef = gql`
   type Size {
-    size: [String!]!
+    size: String!
     stock: Int!
   }
 
@@ -21,14 +20,21 @@ export const typeDef = gql`
 
   extend type Query {
     getProducts: [Product!]!
+    getProduct(id: ID!): Product
   }
 `;
 
 export const resolvers = {
   Query: {
-    getProducts: async () => {
+    // @ts-ignore
+    getProducts: async (_, __, { Product }) => {
       await dbConnect();
       return await Product.find();
+    },
+    // @ts-ignore
+    getProduct: async (_, { id }, { Product }) => {
+      await dbConnect;
+      return await Product.findById(id);
     },
   },
 };
