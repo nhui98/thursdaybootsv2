@@ -1,4 +1,5 @@
 import { gql } from "apollo-server-micro";
+import mongoose from "mongoose";
 import dbConnect from "../../utils/dbConnect";
 
 export const typeDef = gql`
@@ -8,7 +9,7 @@ export const typeDef = gql`
   }
 
   extend type Mutation {
-    createProduct(input: createProductInput!): Product
+    addProduct(input: createProductInput!): Product
   }
 
   type Size {
@@ -48,22 +49,39 @@ export const typeDef = gql`
 export const resolvers = {
   Query: {
     // @ts-ignore
-    getProducts: async (parent, args, { Product }) => {
-      await dbConnect();
-      return await Product.find();
+    getProduct: async (parent, { id }, { Product }) => {
+      if (!mongoose.Types.ObjectId.isValid(id)) return null;
+      try {
+        await dbConnect;
+        return await Product.findById(id);
+      } catch (error) {
+        if (error instanceof Error) throw new Error(error.message);
+        throw new Error(`Something bad happened`);
+      }
     },
     // @ts-ignore
-    getProduct: async (parent, { id }, { Product }) => {
-      await dbConnect;
-      return await Product.findById(id);
+    getProducts: async (parent, args, { Product }) => {
+      if (!mongoose.Types.ObjectId.isValid(id)) return null;
+      try {
+        await dbConnect;
+        return await Product.find();
+      } catch (error) {
+        if (error instanceof Error) throw new Error(error.message);
+        throw new Error(`Something bad happened`);
+      }
     },
   },
   Mutation: {
     // @ts-ignore
-    createProduct: async (parent, args, { Product }) => {
-      await dbConnect;
-      const newProduct = new Product(args.input);
-      return await newProduct.save();
+    addProduct: async (parent, { input }, { Product }) => {
+      try {
+        await dbConnect;
+        const newProduct = new Product(input);
+        return await newProduct.save();
+      } catch (error) {
+        if (error instanceof Error) throw new Error(error.message);
+        throw new Error(`Something bad happened`);
+      }
     },
   },
 };
