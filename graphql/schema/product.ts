@@ -10,6 +10,7 @@ export const typeDef = gql`
 
   extend type Mutation {
     addProduct(input: createProductInput!): Product
+    addProducts(input: [createProductInput!]!): [Product]
   }
 
   type Size {
@@ -61,7 +62,6 @@ export const resolvers = {
     },
     // @ts-ignore
     getProducts: async (parent, args, { Product }) => {
-      if (!mongoose.Types.ObjectId.isValid(id)) return null;
       try {
         await dbConnect;
         return await Product.find();
@@ -78,6 +78,21 @@ export const resolvers = {
         await dbConnect;
         const newProduct = new Product(input);
         return await newProduct.save();
+      } catch (error) {
+        if (error instanceof Error) throw new Error(error.message);
+        throw new Error(`Something bad happened`);
+      }
+    },
+    // @ts-ignore
+    addProducts: async (parent, { input }, { Product }) => {
+      try {
+        if (!(input.length > 0)) throw new Error("Empty Array");
+        await dbConnect;
+        // @ts-ignore
+        return await input.map(async (product) => {
+          const newProduct = new Product(product);
+          return await newProduct.save();
+        });
       } catch (error) {
         if (error instanceof Error) throw new Error(error.message);
         throw new Error(`Something bad happened`);
