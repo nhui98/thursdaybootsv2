@@ -1,11 +1,17 @@
 import { gql } from "apollo-server-micro";
 import mongoose from "mongoose";
 import dbConnect from "../../utils/dbConnect";
+import { Product } from "../models/Product";
 
 export const typeDef = gql`
   extend type Query {
-    getProducts: [Product!]!
     getProduct(id: ID!): Product
+    getProducts: [Product!]!
+    getFilteredProducts(
+      gender: String!
+      category: String
+      style: String
+    ): [Product]
   }
 
   extend type Mutation {
@@ -68,6 +74,42 @@ export const resolvers = {
       } catch (error) {
         if (error instanceof Error) throw new Error(error.message);
         throw new Error(`Something bad happened`);
+      }
+    },
+    // @ts-ignore
+    getFilteredProducts: async (
+      parent: any,
+      {
+        gender,
+        category,
+        style,
+      }: { gender: string; category: string; style: string },
+      // @ts-ignore
+      { Product }
+    ) => {
+      try {
+        await dbConnect;
+
+        const FilteredProductsByGender = (await Product.find({
+          gender,
+        })) as Product[];
+
+        if (category) {
+          const FilteredProductsByGenderCategory =
+            FilteredProductsByGender.filter((p) => p.category === category);
+
+          if (style)
+            return FilteredProductsByGenderCategory.filter(
+              (p) => p.style === style
+            );
+
+          return FilteredProductsByGenderCategory;
+        }
+
+        return FilteredProductsByGender;
+      } catch (error) {
+        if (error instanceof Error) throw new Error(error.message);
+        throw new Error("Something bad happened");
       }
     },
   },
