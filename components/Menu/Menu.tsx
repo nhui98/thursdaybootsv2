@@ -1,22 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Menu.module.scss";
-
-export interface MenuProps {
-  category: {
-    title: string;
-    styles: {
-      style: string;
-      href: string;
-    }[];
-  }[];
-  promotions: {
-    img: string;
-    href: string;
-    title: string;
-    description: string;
-  }[];
-}
+import type {
+  MenuListProps,
+  MenuProps,
+  PromotionItemProps,
+} from "./Menu.types";
 
 export default function Menu({ category, promotions }: MenuProps) {
   return (
@@ -34,16 +23,6 @@ export default function Menu({ category, promotions }: MenuProps) {
   );
 }
 
-interface MenuListProps {
-  category: {
-    title: string;
-    styles: {
-      style: string;
-      href: string;
-    }[];
-  };
-}
-
 const MenuList = ({ category: c }: MenuListProps) => (
   <ul className={styles.listGroup} key={c.title}>
     <li className={styles.listTitle}>{c.title}</li>
@@ -56,15 +35,6 @@ const MenuList = ({ category: c }: MenuListProps) => (
     ))}
   </ul>
 );
-
-interface PromotionItemProps {
-  promotion: {
-    img: string;
-    href: string;
-    title: string;
-    description: string;
-  };
-}
 
 const PromotionItem = ({ promotion }: PromotionItemProps) => (
   <Link href={promotion.href}>
