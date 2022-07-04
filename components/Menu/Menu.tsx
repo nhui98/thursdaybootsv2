@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./Menu.module.scss";
 import type {
@@ -40,12 +39,13 @@ const PromotionItem = ({ promotion }: PromotionItemProps) => (
   <Link href={promotion.href}>
     <a className={styles.promotionItem}>
       <div className={styles.promotionImg}>
-        <Image
+        {/* <Image
           width={256}
           height={192}
           src={promotion.img}
           alt={promotion.title}
-        />
+        /> */}
+        <img src={promotion.img} alt={promotion.title} />
       </div>
       <div className={styles.promotionDetail}>
         <div className={styles.promotionTitle}>{promotion.title}</div>
