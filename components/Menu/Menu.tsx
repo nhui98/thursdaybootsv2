@@ -1,52 +1,27 @@
-import Link from "next/link";
-import styles from "./Menu.module.scss";
-import type {
-  MenuListProps,
-  MenuProps,
-  PromotionItemProps,
-} from "./Menu.types";
+import type { MenuDataType } from "../Navbar/data";
+import s from "./Menu.module.scss";
+import PromotionItem from "./PromotionItem/PromotionItem";
+import StyleList from "./StyleList/StyleList";
 
-export default function Menu({ category, promotions }: MenuProps) {
+export default function Menu({ category, promotions }: MenuDataType) {
   return (
-    <div className={styles.menu}>
-      <div className={styles.categoryList}>
-        {category.length > 0 &&
-          category.map((c) => <MenuList category={c} key={c.title} />)}
+    <div className={s.menu}>
+      <div className={s.categoryList}>
+        {category.map(({ title, styles }) => (
+          <StyleList styles={styles} title={title} key={title} />
+        ))}
       </div>
-
-      <div className={styles.promotionsList}>
-        {promotions.length > 0 &&
-          promotions.map((p) => <PromotionItem promotion={p} key={p.title} />)}
+      <div className={s.promotionsList}>
+        {promotions.map(({ img, href, title, description }) => (
+          <PromotionItem
+            img={img}
+            href={href}
+            title={title}
+            description={description}
+            key={title}
+          />
+        ))}
       </div>
     </div>
   );
 }
-
-const MenuList = ({ category: c }: MenuListProps) => (
-  <ul className={styles.listGroup} key={c.title}>
-    <li className={styles.listTitle}>{c.title}</li>
-    {c.styles.map((style) => (
-      <li key={style.style}>
-        <Link href={style.href}>
-          <a className={styles.listItem}>{style.style}</a>
-        </Link>
-      </li>
-    ))}
-  </ul>
-);
-
-const PromotionItem = ({ promotion }: PromotionItemProps) => (
-  <Link href={promotion.href}>
-    <a className={styles.promotionItem}>
-      <div className={styles.promotionImg}>
-        <img src={promotion.img} alt={promotion.title} />
-      </div>
-      <div className={styles.promotionDetail}>
-        <div className={styles.promotionTitle}>{promotion.title}</div>
-        <div className={styles.promotionDescription}>
-          {promotion.description}
-        </div>
-      </div>
-    </a>
-  </Link>
-);

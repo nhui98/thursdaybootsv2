@@ -1,0 +1,32 @@
+@use "../../../styles/variables" as v;
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 12.5rem;
+  height: 100%;
+  row-gap: 1rem;
+  padding: 2rem 0;
+
+  &:hover {
+    .promotionDetail {
+      .promotionDescription {
+        color: v.$color-black-8;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+
+    .title {
+      font-weight: bold;
+    }
+
+    .description {
+      color: v.$color-black-5;
+    }
+  }
+}

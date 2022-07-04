@@ -1,11 +1,6 @@
 @use "../Navbar/Navbar.module.scss" as n;
 @use "../../styles/variables" as v;
 
-@mixin flexColumn {
-  display: flex;
-  flex-direction: column;
-}
-
 .menu {
   position: absolute;
   inset: n.$navbar-height 0 0 0;
@@ -26,30 +21,13 @@
   }
 
   .categoryList {
-    @include flexColumn;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     row-gap: 2rem;
     column-gap: 5rem;
     width: 40rem;
     padding: 2rem 5rem;
-
-    .listGroup {
-      @include flexColumn;
-      row-gap: 0.5rem;
-
-      .listTitle {
-        font-weight: bold;
-      }
-
-      .listItem {
-        color: v.$color-black-5;
-        font-weight: 500;
-
-        &:hover {
-          color: v.$color-black-3;
-        }
-      }
-    }
   }
 
   .promotionsList {
@@ -60,34 +38,5 @@
     column-gap: 2.5rem;
     padding-right: 2rem;
     overflow: hidden;
-
-    .promotionItem {
-      @include flexColumn;
-      width: 12.5rem;
-      height: 100%;
-      row-gap: 1rem;
-      padding: 2rem 0;
-
-      &:hover {
-        .promotionDetail {
-          .promotionDescription {
-            color: v.$color-black-8;
-          }
-        }
-      }
-
-      .promotionDetail {
-        @include flexColumn;
-        row-gap: 0.25rem;
-
-        .promotionTitle {
-          font-weight: bold;
-        }
-
-        .promotionDescription {
-          color: v.$color-black-5;
-        }
-      }
-    }
   }
 }

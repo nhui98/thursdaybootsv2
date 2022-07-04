@@ -1,0 +1,20 @@
+@use "../../../styles/variables" as v;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+
+  .listTitle {
+    font-weight: bold;
+  }
+
+  .listItem {
+    color: v.$color-black-5;
+    font-weight: 500;
+
+    &:hover {
+      color: v.$color-black-3;
+    }
+  }
+}
