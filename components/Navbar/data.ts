@@ -1,4 +1,4 @@
-export const mensMenuData = {
+export const mensMenuData: MenuDataType = {
   category: [
     {
       title: "boots",
@@ -125,7 +125,7 @@ export const mensMenuData = {
   ],
 };
 
-export const womensMenuData = {
+export const womensMenuData: MenuDataType = {
   category: [
     {
       title: "boots",
@@ -221,3 +221,30 @@ export const womensMenuData = {
     },
   ],
 };
+
+export interface MenuDataType {
+  category: categoryType;
+  promotions: PromotionType;
+}
+export interface categoryType {
+  title: string;
+  styles: (
+    | {
+        style: string;
+        href: string;
+        src: string;
+      }
+    | {
+        style: string;
+        href: string;
+        src: null;
+      }
+  )[];
+}
+
+export interface PromotionType {
+  img: string;
+  href: string;
+  title: string;
+  description: string;
+}

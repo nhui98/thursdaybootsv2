@@ -1,36 +1,10 @@
-export interface MenuProps {
-  category: {
-    title: string;
-    styles: {
-      style: string;
-      href: string;
-      src: string;
-    }[];
-  }[];
-  promotions: {
-    img: string;
-    href: string;
-    title: string;
-    description: string;
-  }[];
-}
+import type { CategoryType, MenuDataType, PromotionType } from "../Navbar/data";
+export type MenuProps = MenuDataType;
 
 export interface MenuListProps {
-  category: {
-    title: string;
-    styles: {
-      style: string;
-      href: string;
-      src: string;
-    }[];
-  };
+  category: CategoryType;
 }
 
 export interface PromotionItemProps {
-  promotion: {
-    img: string;
-    href: string;
-    title: string;
-    description: string;
-  };
+  promotion: PromotionType;
 }
