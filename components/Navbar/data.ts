@@ -223,10 +223,10 @@ export const womensMenuData: MenuDataType = {
 };
 
 export interface MenuDataType {
-  category: categoryType;
-  promotions: PromotionType;
+  category: CategoryType[];
+  promotions: PromotionType[];
 }
-export interface categoryType {
+export interface CategoryType {
   title: string;
   styles: (
     | {
