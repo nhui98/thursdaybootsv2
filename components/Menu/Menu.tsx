@@ -39,12 +39,6 @@ const PromotionItem = ({ promotion }: PromotionItemProps) => (
   <Link href={promotion.href}>
     <a className={styles.promotionItem}>
       <div className={styles.promotionImg}>
-        {/* <Image
-          width={256}
-          height={192}
-          src={promotion.img}
-          alt={promotion.title}
-        /> */}
         <img src={promotion.img} alt={promotion.title} />
       </div>
       <div className={styles.promotionDetail}>

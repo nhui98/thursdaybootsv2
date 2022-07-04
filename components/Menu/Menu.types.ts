@@ -4,6 +4,7 @@ export interface MenuProps {
     styles: {
       style: string;
       href: string;
+      src: string;
     }[];
   }[];
   promotions: {
@@ -20,6 +21,7 @@ export interface MenuListProps {
     styles: {
       style: string;
       href: string;
+      src: string;
     }[];
   };
 }
