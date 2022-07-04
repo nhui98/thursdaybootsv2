@@ -14,3 +14,4 @@ export const Base = Template.bind({});
 Base.args = {
   ...mockMenuProps,
 } as MenuProps;
+Base.storyName = "Menu";
