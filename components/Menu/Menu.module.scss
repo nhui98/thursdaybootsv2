@@ -1,30 +1,32 @@
-@use "../Navbar/Navbar.module.scss" as test;
+@use "../Navbar/Navbar.module.scss" as n;
+@use "../../styles/variables" as v;
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
 
 .menu {
   position: absolute;
-  top: test.$navbar-height;
-  left: 0;
+  inset: n.$navbar-height 0 0 0;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid v.$color-offwhite;
+  border-bottom: 1px solid v.$color-offwhite;
   height: 22rem;
+  width: 100%;
   column-gap: 2rem;
   text-transform: capitalize;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s;
+  transition: opacity 0.5s, visibility 0.5s;
 
   &:hover {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.5s;
+    @include n.menuHover;
   }
 
   .categoryList {
-    display: flex;
-    flex-direction: column;
+    @include flexColumn;
     flex-wrap: wrap;
     row-gap: 2rem;
     column-gap: 5rem;
@@ -32,8 +34,7 @@
     padding: 2rem 5rem;
 
     .listGroup {
-      display: flex;
-      flex-direction: column;
+      @include flexColumn;
       row-gap: 0.5rem;
 
       .listTitle {
@@ -41,11 +42,11 @@
       }
 
       .listItem {
-        color: rgba(0, 0, 0, 0.5);
+        color: v.$color-black-5;
         font-weight: 500;
 
         &:hover {
-          color: rgba(0, 0, 0, 0.3);
+          color: v.$color-black-3;
         }
       }
     }
@@ -54,31 +55,29 @@
   .promotionsList {
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
     width: calc(100vw - 40rem);
-    column-gap: 2.5rem;
     height: 100%;
+    column-gap: 2.5rem;
     padding-right: 2rem;
+    overflow: hidden;
 
     .promotionItem {
-      display: flex;
-      flex-direction: column;
+      @include flexColumn;
       width: 12.5rem;
-      padding: 2rem 0;
       height: 100%;
       row-gap: 1rem;
+      padding: 2rem 0;
 
       &:hover {
         .promotionDetail {
           .promotionDescription {
-            color: rgba(0, 0, 0, 0.8);
+            color: v.$color-black-8;
           }
         }
       }
 
       .promotionDetail {
-        display: flex;
-        flex-direction: column;
+        @include flexColumn;
         row-gap: 0.25rem;
 
         .promotionTitle {
@@ -86,7 +85,7 @@
         }
 
         .promotionDescription {
-          color: rgba(0, 0, 0, 0.5);
+          color: v.$color-black-5;
         }
       }
     }
