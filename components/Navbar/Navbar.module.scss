@@ -1,0 +1,191 @@
+@use "../../styles/variables" as v;
+
+$navbar-height: 5rem;
+$column-gap: 1.5rem;
+
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+@mixin menuHover {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+@mixin iconStyle {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar {
+  position: sticky;
+  inset: 0;
+  @include flex;
+  justify-content: space-between;
+  height: $navbar-height;
+  min-width: 100vw;
+  background-color: transparent;
+  padding: 0 2rem;
+
+  &:hover {
+    background-color: v.$color-white;
+  }
+
+  .left,
+  .middle,
+  .right {
+    @include flex;
+    width: 33.33%;
+    column-gap: $column-gap;
+  }
+
+  .left {
+    justify-content: flex-start;
+
+    .hamburger,
+    .search {
+      display: none;
+      @include iconStyle;
+    }
+  }
+
+  .middle {
+    justify-content: center;
+
+    .logo {
+      font-family: v.$logo-font;
+      font-size: 3rem;
+      cursor: pointer;
+    }
+  }
+
+  .right {
+    justify-content: flex-end;
+
+    .rightLinks {
+      @include flex;
+      column-gap: $column-gap;
+    }
+
+    .rightIcons {
+      display: flex;
+      column-gap: $column-gap;
+
+      .search,
+      .basket,
+      .account {
+        @include iconStyle;
+      }
+
+      .account {
+        display: none;
+      }
+    }
+  }
+}
+
+// NavbarLink Styles
+.link {
+  @include flex;
+  text-transform: uppercase;
+  font-weight: bold;
+  // color: v.$color-white;
+
+  &:hover {
+    & + div {
+      @include menuHover;
+    }
+  }
+
+  .icon {
+    padding-left: 0.5rem;
+  }
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+  .navbar {
+    .middle {
+      .logo {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    .left,
+    .middle,
+    .right {
+      width: auto;
+    }
+
+    .left {
+      .hamburger,
+      .search {
+        display: block;
+      }
+    }
+
+    .middle {
+      .logo {
+        text-align: center;
+      }
+    }
+
+    .right {
+      .rightLinks {
+        display: none;
+      }
+
+      .rightIcons {
+        .account {
+          display: block;
+        }
+
+        .search {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .link {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0 1rem;
+    .left {
+      .search {
+        display: none;
+      }
+    }
+
+    .middle {
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+
+    .right {
+      .rightIcons {
+        .account {
+          display: none;
+        }
+      }
+    }
+  }
+}
