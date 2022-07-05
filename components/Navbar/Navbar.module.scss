@@ -22,7 +22,7 @@ $column-gap: 1.5rem;
 }
 
 .navbar {
-  position: sticky;
+  position: fixed;
   inset: 0;
   @include flex;
   justify-content: space-between;
