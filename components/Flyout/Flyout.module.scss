@@ -1,0 +1,49 @@
+@use "../../styles/variables" as v;
+
+.flyout {
+  $flyout-width: 20rem;
+
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: $flyout-width;
+  z-index: 100;
+  background-color: v.$color-white;
+  text-transform: uppercase;
+  border-right: 1px solid v.$color-offwhite;
+  overflow-y: auto;
+
+  .header {
+    display: flex;
+    padding: 1rem;
+
+    .close {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .divider {
+    height: 1px;
+    width: 2.5rem;
+    border-bottom: 1px solid v.$color-offwhite;
+    margin: 2rem 0 2rem 1rem;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+
+    .link {
+      padding: 1rem;
+      color: v.$color-black-5;
+    }
+  }
+}

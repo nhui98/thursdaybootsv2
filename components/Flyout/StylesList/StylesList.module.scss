@@ -1,0 +1,24 @@
+@use "../../../styles/variables" as v;
+
+.stylesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: v.$color-light-grey;
+  justify-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+  }
+
+  .stylesCard {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 1rem 0;
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../../styles/variables" as v;
+
+.categorylist {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+  }
+
+  .listitem {
+    display: flex;
+    flex-direction: column;
+
+    .dropdownlink {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      cursor: pointer;
+    }
+  }
+}
