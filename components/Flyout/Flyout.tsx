@@ -1,16 +1,25 @@
 import Link from "next/link";
-import { AiOutlineClose } from "react-icons/ai";
+import { Dispatch, SetStateAction } from "react";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import { mensMenuData, womensMenuData } from "../Navbar/data";
 import Accordion from "./Accordion/Accordion";
 import s from "./Flyout.module.scss";
 
-export default function Flyout() {
+interface FlyoutProps {
+  active: boolean;
+  setActive: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Flyout({ active, setActive }: FlyoutProps) {
   return (
-    <div className={s.flyout}>
+    <div className={`${s.flyout} ${active ? s.active : ""}`}>
       <div className={s.header}>
-        <div className={s.close}>
-          <AiOutlineClose />
+        <div className={s.search}>
+          <AiOutlineSearch />
         </div>
+        <button className={s.close} onClick={() => setActive(false)}>
+          <AiOutlineClose />
+        </button>
       </div>
       <div className={s.body}>
         <Accordion category={mensMenuData.category} title="mens" />

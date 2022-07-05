@@ -106,9 +106,7 @@ $column-gap: 1.5rem;
   }
 }
 
-@media (max-width: 1536px) {
-}
-
+// Responsive Styling
 @media (max-width: 1280px) {
   .navbar {
     .middle {
@@ -160,9 +158,6 @@ $column-gap: 1.5rem;
   .link {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
 }
 
 @media (max-width: 576px) {

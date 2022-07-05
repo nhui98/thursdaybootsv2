@@ -5,7 +5,7 @@
 
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   min-height: 100vh;
   width: $flyout-width;
@@ -15,13 +15,26 @@
   border-right: 1px solid v.$color-offwhite;
   overflow-y: auto;
 
+  transform: translateX(-$flyout-width);
+  transition: all 0.5s;
+
+  &.active {
+    transform: translateX(0);
+  }
+
   .header {
     display: flex;
+    justify-content: space-between;
     padding: 1rem;
 
-    .close {
+    .close,
+    .search {
       font-size: 1.5rem;
       cursor: pointer;
+    }
+
+    .search {
+      display: none;
     }
   }
 
@@ -44,6 +57,22 @@
     .link {
       padding: 1rem;
       color: v.$color-black-5;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .flyout {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .flyout {
+    .header {
+      .search {
+        display: block;
+      }
     }
   }
 }
