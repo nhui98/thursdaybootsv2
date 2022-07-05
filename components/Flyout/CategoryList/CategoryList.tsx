@@ -33,6 +33,7 @@ const ListItem = ({ styles, title }: ListItemProps) => {
         title={title}
         active={styleActive}
         setActive={setStyleActive}
+        bgGrey={true}
       />
 
       <StylesList active={styleActive} styles={styles} />

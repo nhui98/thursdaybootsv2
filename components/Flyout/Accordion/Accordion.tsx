@@ -18,7 +18,6 @@ export default function Accordion({ category, title }: DropdownLinkProps) {
         title={title}
         active={categoryActive}
         setActive={setCategoryActive}
-        bgWhite={true}
       />
 
       <CategoryList active={categoryActive} category={category} />

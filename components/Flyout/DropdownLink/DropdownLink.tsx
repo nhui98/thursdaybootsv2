@@ -6,18 +6,18 @@ interface DropdownLinkProps {
   title: string;
   active: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
-  bgWhite?: boolean;
+  bgGrey?: boolean;
 }
 
 export default function DropdownLink({
   title,
   active,
   setActive,
-  bgWhite,
+  bgGrey,
 }: DropdownLinkProps) {
   return (
     <button
-      className={`${s.dropdownlink} ${bgWhite && s.white}`}
+      className={`${s.dropdownlink} ${bgGrey && s.grey}`}
       onClick={() => setActive((active) => !active)}
     >
       <span>{title}</span>
