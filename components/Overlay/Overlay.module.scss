@@ -1,0 +1,14 @@
+@use "../../styles/variables" as v;
+
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: v.$color-black-5;
+  z-index: 1;
+
+  &.active {
+    display: block;
+  }
+}

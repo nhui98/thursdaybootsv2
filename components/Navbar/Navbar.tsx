@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RiAccountCircleLine } from "react-icons/ri";
 import Flyout from "../Flyout/Flyout";
 import Menu from "../Menu/Menu";
+import Overlay from "../Overlay/Overlay";
 import { mensMenuData, womensMenuData } from "./data";
 import styles from "./Navbar.module.scss";
 import { NavbarLinkProps } from "./Navbar.types";
@@ -16,6 +17,7 @@ export default function Navbar() {
   return (
     <>
       <Flyout active={active} setActive={setActive} />
+      <Overlay active={active} setActive={setActive} />
       <nav className={styles.navbar}>
         <div className={styles.left}>
           <button className={styles.hamburger} onClick={() => setActive(true)}>
