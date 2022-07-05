@@ -1,6 +1,11 @@
-import * as NextImage from "next/image";
+// import { addDecorator } from "@storybook/react";
+// import * as NextImage from "next/image";
 import "../styles/index.scss";
 
+// add global decorators
+// addDecorator((story) => story());
+
+//
 const BREAKPOINTS_INT = {
   xs: 375,
   sm: 600,
@@ -26,12 +31,12 @@ const customViewports = Object.fromEntries(
 );
 
 // Allow Storybook to handle Next's <Image> component
-const OriginalNextImage = NextImage.default;
+// const OriginalNextImage = NextImage.default;
 
-Object.defineProperty(NextImage, "default", {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
+// Object.defineProperty(NextImage, "default", {
+//   configurable: true,
+//   value: (props) => <OriginalNextImage {...props} unoptimized />,
+// });
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

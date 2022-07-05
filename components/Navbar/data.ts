@@ -56,7 +56,6 @@ export const mensMenuData: MenuDataType = {
         {
           style: "boat shoes",
           href: "/mens/shoes/boats",
-          src: null,
         },
       ],
     },
@@ -71,7 +70,6 @@ export const mensMenuData: MenuDataType = {
         {
           style: "laces",
           href: "/unisex/accessories/laces",
-          src: null,
         },
         {
           style: "socks",
@@ -138,7 +136,7 @@ export const womensMenuData: MenuDataType = {
         {
           style: "high heels",
           href: "/womens/boots/heel",
-          src: "/images/flyout/flyout-women-heel.webp",
+          src: "/images/flyout/flyout-women-heels.webp",
         },
         {
           style: "captain",
@@ -173,7 +171,6 @@ export const womensMenuData: MenuDataType = {
         {
           style: "laces",
           href: "/unisex/accessories/laces",
-          src: null,
         },
         {
           style: "socks",
@@ -228,18 +225,13 @@ export interface MenuDataType {
 }
 export interface CategoryType {
   title: string;
-  styles: (
-    | {
-        style: string;
-        href: string;
-        src: string;
-      }
-    | {
-        style: string;
-        href: string;
-        src: null;
-      }
-  )[];
+  styles: StyleType[];
+}
+
+export interface StyleType {
+  style: string;
+  href: string;
+  src?: string;
 }
 
 export interface PromotionType {
