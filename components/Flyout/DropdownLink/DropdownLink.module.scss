@@ -1,0 +1,13 @@
+@use "../../../styles/variables" as v;
+
+.dropdownlink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+
+  &.white {
+    background-color: v.$color-white;
+  }
+}
