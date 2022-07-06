@@ -1,6 +1,7 @@
 export interface SlideshowItemType {
+  slideNo: number;
   img: string;
-  title: string;
+  title: { text: string }[];
   description: string;
   buttons: {
     text: string;
@@ -10,8 +11,16 @@ export interface SlideshowItemType {
 
 export const SlideshowData: SlideshowItemType[] = [
   {
+    slideNo: 1,
     img: "/images/slideshow/slideshow-img1.webp",
-    title: "highest quality. honest prices.",
+    title: [
+      {
+        text: "highest quality.",
+      },
+      {
+        text: "honest prices.",
+      },
+    ],
     description: "handcrafted with integrity",
     buttons: [
       {
@@ -25,8 +34,9 @@ export const SlideshowData: SlideshowItemType[] = [
     ],
   },
   {
+    slideNo: 2,
     img: "/images/slideshow/slideshow-img2.webp",
-    title: "saddle up",
+    title: [{ text: "saddle up" }],
     description:
       "step into the rodeo, a western boot designed for your everyday",
     buttons: [
@@ -37,8 +47,9 @@ export const SlideshowData: SlideshowItemType[] = [
     ],
   },
   {
+    slideNo: 3,
     img: "/images/slideshow/slideshow-img3.webp",
-    title: "the premier low top",
+    title: [{ text: "the premier low top" }],
     description:
       "the essential leather sneaker, now available in men's and women's",
     buttons: [

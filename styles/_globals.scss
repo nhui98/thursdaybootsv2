@@ -20,15 +20,22 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 img,
 picture,
 video,
-canvas,
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 svg {
   display: block;
-  max-width: 100%;
 }
 
 input,
