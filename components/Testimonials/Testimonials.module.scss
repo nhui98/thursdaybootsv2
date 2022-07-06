@@ -51,11 +51,13 @@
 
       .testimony {
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 100vw;
         scroll-snap-align: start;
 
-        span {
+        .quote {
           text-align: center;
           width: 60%;
           font-size: 2rem;
@@ -69,6 +71,10 @@
             content: close-quote;
           }
         }
+
+        .imgsmall {
+          display: none;
+        }
       }
     }
   }
@@ -77,6 +83,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    padding: 0 2rem;
 
     .imageswrapper {
       display: flex;
@@ -100,13 +107,53 @@
     align-items: center;
     row-gap: 1rem;
     width: 100%;
+    padding: 0 1rem;
 
     .ratingtitle {
       text-transform: uppercase;
+      text-align: center;
     }
 
     .stars {
       display: flex;
+    }
+  }
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .testimonials {
+    row-gap: 1rem;
+    .container {
+      .wrapper {
+        .testimony {
+          row-gap: 2rem;
+
+          .quote {
+            font-size: 1.5rem;
+            width: 80%;
+          }
+
+          .imgsmall {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .imagescontainer {
+      display: none;
     }
   }
 }

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Slideshow from "./Slideshow";
 
 export default {
-  title: "components/Homepage",
+  title: "components/Homepage/Slideshow",
   component: Slideshow,
   argTypes: {},
 } as ComponentMeta<typeof Slideshow>;

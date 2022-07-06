@@ -29,10 +29,15 @@ export default function Testimonials() {
           <AiOutlineLeft onClick={scrollLeft} />
         </div>
         <div className={s.wrapper} ref={wrapperRef}>
-          {testimonialData.map(({ id, testimony }) => (
-            <div ref={testRef} className={s.testimony} key={id}>
-              <span>{testimony}</span>
-            </div>
+          {testimonialData.map(({ id, testimony, img }) => (
+            <>
+              <div ref={testRef} className={s.testimony} key={id}>
+                <span className={s.quote}>{testimony}</span>
+                <div className={s.imgsmall}>
+                  <img src={img} alt={testimony} />
+                </div>
+              </div>
+            </>
           ))}
         </div>
         <div className={s.right}>
