@@ -6,7 +6,6 @@ import s from "./Slideshow.module.scss";
 
 export default function Slideshow() {
   const [slide, setSlide] = useState<number>(1);
-  console.log(slide);
 
   const prevSlide = () => {
     slide > 1 ? setSlide((slide) => slide - 1) : setSlide(3);
