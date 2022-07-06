@@ -21,17 +21,20 @@ export default function Slideshow() {
       <button className={s.left} onClick={prevSlide}>
         <AiOutlineLeft />
       </button>
-      {SlideshowData.map(({ slideNo, title, img, description, buttons }) => (
-        <SlideshowItem
-          slideNo={slideNo}
-          title={title}
-          img={img}
-          description={description}
-          buttons={buttons}
-          key={description}
-          active={slide}
-        />
-      ))}
+      {SlideshowData.map(
+        ({ slideNo, title, img, imgSmall, description, buttons }) => (
+          <SlideshowItem
+            slideNo={slideNo}
+            title={title}
+            img={img}
+            imgSmall={imgSmall}
+            description={description}
+            buttons={buttons}
+            key={description}
+            active={slide}
+          />
+        )
+      )}
       <button className={s.right} onClick={nextSlide}>
         <AiOutlineRight />
       </button>
@@ -52,6 +55,7 @@ const SlideshowItem = ({
   slideNo,
   title,
   img,
+  imgSmall,
   description,
   buttons,
   active,
@@ -61,6 +65,7 @@ const SlideshowItem = ({
   return (
     <div className={`${s.slideitem} ${active === slideNo ? s.active : ""}`}>
       <img src={img} alt={description} className={s.slideimg} />
+      <img src={imgSmall} alt={description} className={s.slideimgsmall} />
       <div className={`${s.details} ${s[SlideNumber]}`}>
         <h2 className={s.title}>
           {title.map(({ text }) => (
