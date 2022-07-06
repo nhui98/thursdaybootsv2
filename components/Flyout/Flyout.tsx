@@ -5,7 +5,7 @@ import { mensMenuData, womensMenuData } from "../Navbar/data";
 import Accordion from "./Accordion/Accordion";
 import s from "./Flyout.module.scss";
 
-interface FlyoutProps {
+export interface FlyoutProps {
   active: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
 }
