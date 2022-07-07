@@ -44,7 +44,7 @@
 
     .wrapper {
       display: grid;
-      grid-template-columns: repeat(6, 100vw);
+      grid-template-columns: repeat(6, 1fr);
       overflow-x: hidden;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
@@ -55,6 +55,7 @@
         justify-content: center;
         align-items: center;
         width: 100vw;
+        min-width: 300px;
         scroll-snap-align: start;
 
         .quote {
