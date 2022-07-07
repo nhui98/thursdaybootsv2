@@ -5,7 +5,7 @@ import { MockFlyoutProps } from "./Flyout.mocks";
 export default {
   title: "components/Navbar/Flyout",
   component: Flyout,
-  decorators: [],
+  argTypes: {},
 } as ComponentMeta<typeof Flyout>;
 
 const Template: ComponentStory<typeof Flyout> = (args) => <Flyout {...args} />;
