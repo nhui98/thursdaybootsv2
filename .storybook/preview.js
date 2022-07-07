@@ -7,10 +7,10 @@ import "../styles/index.scss";
 
 //
 const BREAKPOINTS_INT = {
-  xs: 375,
-  sm: 600,
-  md: 900,
-  lg: 1200,
+  xs: 576,
+  sm: 768,
+  md: 992,
+  lg: 1280,
   xl: 1536,
 };
 
