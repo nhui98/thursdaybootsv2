@@ -92,3 +92,22 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .footer {
+    .socials {
+      .form {
+        flex-wrap: wrap;
+        row-gap: 1rem;
+
+        input {
+          width: 100%;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
