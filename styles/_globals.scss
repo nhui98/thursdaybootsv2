@@ -21,9 +21,11 @@ body {
 }
 
 body {
+  position: relative;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  height: max-content;
 }
 
 img,
