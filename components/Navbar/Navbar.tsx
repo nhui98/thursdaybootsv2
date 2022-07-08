@@ -27,25 +27,25 @@ export default function Navbar() {
             <AiOutlineSearch />
           </div>
 
-          <NavbarLink href={"/mens"} title={"men"} icon={AiOutlineDown} />
+          <NavbarLink href={"/mens"} title={"MEN"} icon={AiOutlineDown} />
           <Menu
             category={mensMenuData.category}
             promotions={mensMenuData.promotions}
           />
-          <NavbarLink href={"/womens"} title={"women"} icon={AiOutlineDown} />
+          <NavbarLink href={"/womens"} title={"WOMEN"} icon={AiOutlineDown} />
           <Menu
             category={womensMenuData.category}
             promotions={womensMenuData.promotions}
           />
-          <NavbarLink href={"/about"} title={"about"} />
+          <NavbarLink href={"/about"} title={"ABOUT"} />
         </div>
         <div className={styles.middle}>
           <div className={styles.logo}>Thursday Boots</div>
         </div>
         <div className={styles.right}>
           <div className={styles.rightLinks}>
-            <NavbarLink href={"/help"} title={"help"} />
-            <NavbarLink href={"/account"} title={"account"} />
+            <NavbarLink href={"/help"} title={"HELP"} />
+            <NavbarLink href={"/account"} title={"ACCOUNT"} />
           </div>
           <div className={styles.rightIcons}>
             <div className={styles.account}>

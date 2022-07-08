@@ -31,9 +31,12 @@ $column-gap: 1.5rem;
   background-color: transparent;
   padding: 0 2rem;
   z-index: 1;
+  color: v.$color-white;
+  transition: background-color 0.5s, color 0.5s;
 
   &:hover {
     background-color: v.$color-white;
+    color: v.$color-black;
   }
 
   .left,
@@ -92,9 +95,7 @@ $column-gap: 1.5rem;
 // NavbarLink Styles
 .link {
   @include flex;
-  text-transform: uppercase;
   font-weight: bold;
-  // color: v.$color-white;
 
   &:hover {
     & + div {
@@ -120,6 +121,8 @@ $column-gap: 1.5rem;
 
 @media (max-width: 992px) {
   .navbar {
+    color: v.$color-black;
+
     .left,
     .middle,
     .right {

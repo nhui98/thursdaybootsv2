@@ -223,6 +223,7 @@ export interface MenuDataType {
   category: CategoryType[];
   promotions: PromotionType[];
 }
+
 export interface CategoryType {
   title: string;
   styles: StyleType[];
