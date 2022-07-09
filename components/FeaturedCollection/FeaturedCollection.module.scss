@@ -1,0 +1,111 @@
+@use "../../styles/variables" as v;
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: v.$color-light-grey;
+  row-gap: 2rem;
+
+  .buttons {
+    display: flex;
+    column-gap: 2rem;
+
+    .button {
+      min-width: 12rem;
+      background-color: v.$color-green;
+      padding: 0.5rem 2rem;
+      border-radius: 5rem;
+      color: v.$color-white;
+      transition: color 0.5s, background-color 0.5s;
+      cursor: pointer;
+      border: 1px solid v.$color-green;
+
+      &.active {
+        background-color: v.$color-white;
+        color: v.$color-green;
+      }
+    }
+  }
+
+  .images {
+    position: relative;
+
+    .container {
+      column-gap: 1rem;
+      justify-content: center;
+      display: none;
+
+      &.active,
+      &.alt.active {
+        display: flex;
+      }
+    }
+  }
+}
+
+.item {
+  max-width: 15rem;
+
+  .image {
+    display: block;
+    position: relative;
+
+    &:hover {
+      .alt {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .alt {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .style {
+      font-weight: 500;
+    }
+
+    .color {
+      color: v.$color-black-5;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .collection {
+    .buttons {
+      .button {
+        &.active {
+          display: none;
+        }
+      }
+    }
+    .images {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow: auto;
+      padding-bottom: 2rem;
+
+      .container {
+        width: max-content;
+      }
+    }
+  }
+
+  .item {
+    width: 12rem;
+  }
+}
