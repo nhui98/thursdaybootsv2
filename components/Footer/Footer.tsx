@@ -26,8 +26,8 @@ export default function Footer() {
           <button>{social.buttonText}</button>
         </form>
         <div className={s.socialLinks}>
-          {social.socialLinks.map(({ href, icon: Icon }) => (
-            <Link href={href} key={href}>
+          {social.socialLinks.map(({ href, icon: Icon }, i) => (
+            <Link href={href} key={href + i}>
               <a className={s.link}>
                 <Icon />
               </a>
