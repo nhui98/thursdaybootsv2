@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import dbConnect from "../../utils/dbConnect";
+import dbConnect from "../utils/dbConnect";
 
 export const resolvers = {
   Query: {
