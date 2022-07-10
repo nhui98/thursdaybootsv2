@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface Product {
+export interface ProductType {
   gender: string;
   category: string;
   style: string;
@@ -29,7 +29,7 @@ export interface Product {
   }[];
 }
 
-const productSchema = new mongoose.Schema<Product>({
+const productSchema = new mongoose.Schema<ProductType>({
   gender: {
     type: String,
     enum: ["mens", "womens", "unisex"],

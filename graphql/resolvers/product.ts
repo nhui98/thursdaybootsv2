@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dbConnect from "../../utils/dbConnect";
-import type { Product } from "../models/Product";
+import type { ProductType } from "../models/Product";
 
 export const resolvers = {
   Query: {
@@ -39,9 +39,9 @@ export const resolvers = {
       try {
         await dbConnect();
 
-        const FilteredProductsByGender = (await Product.find({
+        const FilteredProductsByGender: ProductType[] = await Product.find({
           gender,
-        })) as Product[];
+        });
 
         if (category) {
           const FilteredProductsByGenderCategory =
