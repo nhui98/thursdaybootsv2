@@ -59,35 +59,35 @@ export const mensMenuData: MenuDataType = {
         },
       ],
     },
-    {
-      title: "accessories & apparel",
-      styles: [
-        {
-          style: "shoe care",
-          href: "/unisex/accessories/care",
-          src: "/images/flyout/flyout-uni-care.webp",
-        },
-        {
-          style: "laces",
-          href: "/unisex/accessories/laces",
-        },
-        {
-          style: "socks",
-          href: "/unisex/accessories/socks",
-          src: "/images/flyout/flyout-uni-socks.webp",
-        },
-        {
-          style: "belts",
-          href: "/unisex/accessories/belts",
-          src: "/images/flyout/flyout-uni-belts.webp",
-        },
-        {
-          style: "jackets",
-          href: "/unisex/accessories/jackets",
-          src: "/images/flyout/flyout-uni-jacket.webp",
-        },
-      ],
-    },
+    // {
+    //   title: "accessories & apparel",
+    //   styles: [
+    //     {
+    //       style: "shoe care",
+    //       href: "/unisex/accessories/care",
+    //       src: "/images/flyout/flyout-uni-care.webp",
+    //     },
+    //     {
+    //       style: "laces",
+    //       href: "/unisex/accessories/laces",
+    //     },
+    //     {
+    //       style: "socks",
+    //       href: "/unisex/accessories/socks",
+    //       src: "/images/flyout/flyout-uni-socks.webp",
+    //     },
+    //     {
+    //       style: "belts",
+    //       href: "/unisex/accessories/belts",
+    //       src: "/images/flyout/flyout-uni-belts.webp",
+    //     },
+    //     {
+    //       style: "jackets",
+    //       href: "/unisex/accessories/jackets",
+    //       src: "/images/flyout/flyout-uni-jacket.webp",
+    //     },
+    //   ],
+    // },
   ],
   promotions: [
     {
@@ -160,30 +160,30 @@ export const womensMenuData: MenuDataType = {
         },
       ],
     },
-    {
-      title: "accessories & apparel",
-      styles: [
-        {
-          style: "shoe care",
-          href: "/unisex/accessories/care",
-          src: "/images/flyout/flyout-uni-care.webp",
-        },
-        {
-          style: "laces",
-          href: "/unisex/accessories/laces",
-        },
-        {
-          style: "socks",
-          href: "/unisex/accessories/socks",
-          src: "/images/flyout/flyout-uni-socks.webp",
-        },
-        {
-          style: "belts",
-          href: "/unisex/accessories/belts",
-          src: "/images/flyout/flyout-uni-belts.webp",
-        },
-      ],
-    },
+    // {
+    //   title: "accessories & apparel",
+    //   styles: [
+    //     {
+    //       style: "shoe care",
+    //       href: "/unisex/accessories/care",
+    //       src: "/images/flyout/flyout-uni-care.webp",
+    //     },
+    //     {
+    //       style: "laces",
+    //       href: "/unisex/accessories/laces",
+    //     },
+    //     {
+    //       style: "socks",
+    //       href: "/unisex/accessories/socks",
+    //       src: "/images/flyout/flyout-uni-socks.webp",
+    //     },
+    //     {
+    //       style: "belts",
+    //       href: "/unisex/accessories/belts",
+    //       src: "/images/flyout/flyout-uni-belts.webp",
+    //     },
+    //   ],
+    // },
   ],
   promotions: [
     {
