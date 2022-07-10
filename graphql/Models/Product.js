@@ -1,35 +1,6 @@
 import mongoose from "mongoose";
 
-interface ProductType {
-  gender: string;
-  category: string;
-  style: string;
-  price: number;
-  color: string;
-  mainImg: string;
-  altImg: string[];
-  sizes: {
-    size:
-      | "6"
-      | "7"
-      | "8"
-      | "9"
-      | "10"
-      | "11"
-      | "12"
-      | "13"
-      | "14"
-      | "XS"
-      | "S"
-      | "M"
-      | "L"
-      | "XL"
-      | "XXL";
-    stock: number;
-  }[];
-}
-
-const productSchema = new mongoose.Schema<ProductType>({
+const productSchema = new mongoose.Schema({
   gender: {
     type: String,
     enum: ["mens", "womens", "unisex"],

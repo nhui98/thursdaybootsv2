@@ -3,7 +3,6 @@ import dbConnect from "../../utils/dbConnect";
 
 export const resolvers = {
   Query: {
-    // @ts-ignore
     getProduct: async (parent, { id }, { Product }) => {
       if (!mongoose.Types.ObjectId.isValid(id)) return null;
       try {
@@ -14,7 +13,6 @@ export const resolvers = {
         throw new Error(`Something bad happened`);
       }
     },
-    // @ts-ignore
     getProducts: async (parent, args, { Product }) => {
       try {
         await dbConnect();
@@ -24,15 +22,9 @@ export const resolvers = {
         throw new Error(`Something bad happened`);
       }
     },
-    // @ts-ignore
     getFilteredProducts: async (
-      parent: any,
-      {
-        gender,
-        category,
-        style,
-      }: { gender: string; category: string; style: string },
-      // @ts-ignore
+      parent,
+      { gender, category, style },
       { Product }
     ) => {
       try {
@@ -44,13 +36,11 @@ export const resolvers = {
 
         if (category) {
           const FilteredProductsByGenderCategory =
-            FilteredProductsByGender.filter(
-              (p: any) => p.category === category
-            );
+            FilteredProductsByGender.filter((p) => p.category === category);
 
           if (style)
             return FilteredProductsByGenderCategory.filter(
-              (p: any) => p.style === style
+              (p) => p.style === style
             );
 
           return FilteredProductsByGenderCategory;
@@ -64,7 +54,6 @@ export const resolvers = {
     },
   },
   Mutation: {
-    // @ts-ignore
     addProduct: async (parent, { input }, { Product }) => {
       try {
         await dbConnect();
@@ -75,12 +64,10 @@ export const resolvers = {
         throw new Error(`Something bad happened`);
       }
     },
-    // @ts-ignore
     addProducts: async (parent, { input }, { Product }) => {
       try {
         if (!(input.length > 0)) throw new Error("Empty Array");
         await dbConnect();
-        // @ts-ignore
         return await input.map(async (product) => {
           const newProduct = new Product(product);
           return await newProduct.save();
