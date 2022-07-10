@@ -1,8 +1,8 @@
 import { ApolloServer } from "apollo-server-micro";
 import { NextApiRequest, NextApiResponse } from "next";
-import Product from "../../models/Product";
-import { resolvers } from "../../resolvers";
-import { typeDefs } from "../../schema";
+import Product from "../../utils/models/Product";
+import { resolvers } from "../../utils/resolvers";
+import { typeDefs } from "../../utils/schema";
 
 const server = new ApolloServer({
   typeDefs,
