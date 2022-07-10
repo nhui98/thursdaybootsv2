@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface ProductType {
+interface ProductType {
   gender: string;
   category: string;
   style: string;
