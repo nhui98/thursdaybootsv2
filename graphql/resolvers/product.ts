@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dbConnect from "../../utils/dbConnect";
-import { Product } from "../models/Product";
+import type { Product } from "../models/Product";
 
 export const resolvers = {
   Query: {
