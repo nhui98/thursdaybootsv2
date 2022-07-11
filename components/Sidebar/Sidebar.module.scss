@@ -31,7 +31,6 @@
     .styles {
       display: none;
       flex-direction: column;
-      padding-left: 1rem;
 
       &.active {
         display: flex;
@@ -39,6 +38,7 @@
 
       .style {
         padding: 0.25rem 0;
+        padding-left: 1rem;
 
         &.active {
           background-color: v.$color-light-grey;

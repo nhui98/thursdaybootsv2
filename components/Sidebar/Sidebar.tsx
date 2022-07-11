@@ -56,7 +56,11 @@ const CategoryList = ({
     <div className={s.category}>
       <button className={s.dropdown} onClick={() => setActive(category)}>
         <span>{category}</span>
-        {active === category ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        {active.toLowerCase() === category.toLowerCase() ? (
+          <AiOutlineMinus />
+        ) : (
+          <AiOutlinePlus />
+        )}
       </button>
       <div
         className={`${s.styles} ${
@@ -66,7 +70,9 @@ const CategoryList = ({
         {styles.map(({ id, href, style }) => (
           <Link href={href} key={id}>
             <a
-              className={`${s.style} ${active === styleQuery ? s.active : ""}`}
+              className={`${s.style} ${
+                style.toLowerCase() === styleQuery.toLowerCase() ? s.active : ""
+              }`}
             >
               {style}
             </a>
