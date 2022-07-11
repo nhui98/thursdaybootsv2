@@ -27,10 +27,13 @@ export const typeDef = gql`
     category: String!
     style: String!
     price: Float!
+    slug: String!
     color: String!
-    mainImg: String!
-    altImg: [String]!
+    images: [String!]!
     sizes: [Size!]!
+    featureImage: String!
+    productFeatures: [String!]!
+    description: String!
   }
 
   input SizeInput {
@@ -43,9 +46,12 @@ export const typeDef = gql`
     category: String!
     style: String!
     price: Float!
+    slug: String!
     color: String!
-    mainImg: String!
-    altImg: [String]!
+    images: [String!]!
     sizes: [SizeInput!]!
+    featureImage: String!
+    productFeatures: [String!]!
+    description: String!
   }
 `;

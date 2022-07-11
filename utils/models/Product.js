@@ -9,9 +9,9 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required: true },
   style: { type: String, required: true },
   price: { type: Number, required: true },
+  slug: { type: String, required: true },
   color: { type: String, required: true },
-  mainImg: { type: String, required: true },
-  altImg: { type: [String], required: true },
+  images: { type: [String], required: true },
   sizes: {
     type: [
       {
@@ -41,6 +41,9 @@ const productSchema = new mongoose.Schema({
     ],
     required: true,
   },
+  featureImage: { type: String, required: true },
+  productFeatures: { type: [String], required: true },
+  description: { type: String, required: true },
 });
 
 export default mongoose.models.Product ||
