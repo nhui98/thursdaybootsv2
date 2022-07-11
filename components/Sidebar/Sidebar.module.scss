@@ -1,0 +1,49 @@
+@use "../../styles/variables" as v;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 15rem;
+
+  .breadcrumb {
+    text-transform: capitalize;
+    color: v.$color-black-5;
+    cursor: pointer;
+    border-bottom: 1px solid v.$color-offwhite;
+    padding: 0.5rem 0;
+  }
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .dropdown {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-transform: capitalize;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .styles {
+      display: none;
+      flex-direction: column;
+      padding-left: 1rem;
+
+      &.active {
+        display: flex;
+      }
+
+      .style {
+        padding: 0.25rem 0;
+
+        &.active {
+          background-color: v.$color-light-grey;
+        }
+      }
+    }
+  }
+}
