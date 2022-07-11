@@ -1,6 +1,23 @@
 import mongoose from "mongoose";
 
-const productSchema = new mongoose.Schema({
+export interface ProductType {
+  gender: "mens" | "womens" | "unisex";
+  category: string;
+  style: string;
+  price: number;
+  slug: string;
+  color: string;
+  images: string[];
+  sizes: {
+    size: string;
+    stock: number;
+  }[];
+  featureImage: string;
+  productFeatures: string[];
+  description: string;
+}
+
+const productSchema = new mongoose.Schema<ProductType>({
   gender: {
     type: String,
     enum: ["mens", "womens", "unisex"],
@@ -9,7 +26,7 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required: true },
   style: { type: String, required: true },
   price: { type: Number, required: true },
-  slug: { type: String, required: true },
+  slug: { type: String, required: true, unique: true },
   color: { type: String, required: true },
   images: { type: [String], required: true },
   sizes: {
@@ -46,5 +63,10 @@ const productSchema = new mongoose.Schema({
   description: { type: String, required: true },
 });
 
-export default mongoose.models.Product ||
-  mongoose.model("Product", productSchema);
+export default (mongoose.models.Product as mongoose.Model<
+  ProductType,
+  {},
+  {},
+  {},
+  any
+>) || mongoose.model<ProductType>("Product", productSchema);
