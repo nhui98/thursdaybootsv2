@@ -26,4 +26,19 @@ export const paths = [
   {
     params: { gender: "mens", category: "sneakers", style: "lowtop" },
   },
+  {
+    params: { gender: "womens", category: "boots", style: "captain" },
+  },
+  {
+    params: { gender: "womens", category: "boots", style: "chelsea" },
+  },
+  {
+    params: { gender: "womens", category: "boots", style: "high-heels" },
+  },
+  {
+    params: { gender: "womens", category: "boots", style: "high-heels" },
+  },
+  {
+    params: { gender: "womens", category: "sneakers", style: "lowtop" },
+  },
 ];

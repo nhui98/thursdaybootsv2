@@ -35,6 +35,8 @@ const productSchema = new mongoose.Schema<ProductType>({
         size: {
           type: String,
           enum: [
+            "4",
+            "5",
             "6",
             "7",
             "8",
