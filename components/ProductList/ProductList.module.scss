@@ -1,0 +1,54 @@
+@use "../../styles/variables" as v;
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  .title {
+    text-transform: capitalize;
+    color: v.$color-black-5;
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .container {
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 1.5rem;
+      row-gap: 3rem;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .productList {
+    .container {
+      .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .productList {
+    .container {
+      .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .productList {
+    .container {
+      .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

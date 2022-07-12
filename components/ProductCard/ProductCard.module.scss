@@ -1,7 +1,7 @@
 @use "../../styles/variables" as v;
 
 .productCard {
-  width: 18rem;
+  max-width: 18rem;
 
   .image {
     position: relative;
