@@ -1,0 +1,53 @@
+@use "../../styles/variables" as v;
+
+.productCard {
+  width: 18rem;
+
+  .image {
+    position: relative;
+
+    .mainImg {
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    .altImg {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      opacity: 0;
+
+      transition: opacity 0.5s;
+    }
+
+    &:hover {
+      .mainImg {
+        opacity: 0;
+      }
+
+      .altImg {
+        z-index: 1;
+        opacity: 1;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+
+    .description {
+      display: flex;
+      justify-content: space-between;
+
+      .style {
+        font-weight: 500;
+      }
+    }
+    .color {
+      color: v.$color-black-5;
+      font-weight: 500;
+    }
+  }
+}
