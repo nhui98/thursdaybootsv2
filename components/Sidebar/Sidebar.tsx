@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { sidebarData } from "./data";
 import s from "./Sidebar.module.scss";
 
-export default function Sidebar() {
-  const { query } = useRouter();
-  const { gender, category, style } = query;
-  const [active, setActive] = useState(category!.toString().toLowerCase());
+export interface SidebarProps {
+  gender: string;
+  category: string;
+  style: string;
+}
+
+export default function Sidebar({ gender, category, style }: SidebarProps) {
+  const [active, setActive] = useState(category);
 
   if (gender === "mens" || gender === "womens")
     return (
@@ -23,7 +26,7 @@ export default function Sidebar() {
               active={active}
               setActive={setActive}
               key={data.id}
-              styleQuery={style as string}
+              styleQuery={style}
             />
           ))}
       </div>
@@ -54,24 +57,23 @@ const CategoryList = ({
 }: CategoryListProps) => {
   return (
     <div className={s.category}>
-      <button className={s.dropdown} onClick={() => setActive(category)}>
+      <button
+        className={s.dropdown}
+        onClick={() => setActive(category.toLowerCase())}
+      >
         <span>{category}</span>
-        {active.toLowerCase() === category.toLowerCase() ? (
-          <AiOutlineMinus />
-        ) : (
-          <AiOutlinePlus />
-        )}
+        {active === category ? <AiOutlineMinus /> : <AiOutlinePlus />}
       </button>
       <div
         className={`${s.styles} ${
-          active.toLowerCase() === category.toLowerCase() ? s.active : ""
+          active === category.toLowerCase() ? s.active : ""
         }`}
       >
         {styles.map(({ id, href, style }) => (
           <Link href={href} key={id}>
             <a
               className={`${s.style} ${
-                style.toLowerCase() === styleQuery.toLowerCase() ? s.active : ""
+                style.toLowerCase() === styleQuery ? s.active : ""
               }`}
             >
               {style}
