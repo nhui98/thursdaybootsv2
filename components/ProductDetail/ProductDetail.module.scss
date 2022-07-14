@@ -1,0 +1,122 @@
+@use "../../styles/variables" as v;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+
+  .style {
+    text-transform: capitalize;
+    font-size: 1.75rem;
+  }
+
+  .price {
+    font-size: 1.125rem;
+  }
+
+  .guarantee {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    color: v.$color-blue;
+
+    svg {
+      font-size: 1.25rem;
+    }
+  }
+
+  .color {
+    text-transform: capitalize;
+  }
+
+  .sizes {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+
+    .size {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid v.$color-offwhite;
+      width: 3.5rem;
+      height: 3.5rem;
+      cursor: pointer;
+
+      &.disabled {
+        cursor: none;
+      }
+
+      &:hover {
+        background-color: v.$color-offwhite;
+      }
+
+      &.selected {
+        background-color: v.$color-offwhite;
+        border: 1px solid v.$color-black-5;
+      }
+    }
+  }
+
+  .addtocart {
+    border: 1px solid v.$color-black-5;
+    background-color: v.$color-blue;
+    color: v.$color-white;
+    font-weight: bold;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+
+  .productFeatures {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.125rem;
+      font-weight: 500;
+      padding: 1rem 0;
+      border-top: 1px solid v.$color-grey;
+      text-transform: capitalize;
+
+      .featureActive {
+        display: none;
+      }
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.5rem;
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .details {
+    .productFeatures {
+      .title {
+        cursor: pointer;
+
+        .featureActive {
+          display: block;
+        }
+      }
+
+      .features {
+        display: none;
+
+        &.active {
+          display: flex;
+        }
+      }
+    }
+  }
+}
