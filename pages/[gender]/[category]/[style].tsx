@@ -7,7 +7,7 @@ import dbConnect from "../../../utils/dbConnect";
 import Product from "../../../utils/models/Product";
 import { paths } from "../../../utils/productListPaths";
 
-const Mens: NextPage = ({ products }: any) => {
+const ProductListing: NextPage = ({ products }: any) => {
   const { query } = useRouter();
   const { gender, category, style } = query;
 
@@ -28,7 +28,7 @@ const Mens: NextPage = ({ products }: any) => {
   );
 };
 
-export default Mens;
+export default ProductListing;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
