@@ -1,0 +1,80 @@
+@use "../../styles/variables" as v;
+
+.description {
+  position: relative;
+  padding: 1rem;
+  background-color: v.$color-white;
+
+  .wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    padding: 0 4rem;
+    overflow: hidden;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      background-color: v.$color-white-8;
+      padding: 3rem;
+      text-align: center;
+
+      .title {
+        font-size: 2rem;
+        text-transform: capitalize;
+      }
+
+      span {
+        line-height: 1.75;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .description {
+    .wrapper {
+      padding: 0 1rem;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .description {
+    padding: 1rem 0;
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+
+      .text {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    .wrapper {
+      .text {
+        .title {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .description {
+    .wrapper {
+      padding: 0;
+    }
+  }
+}
