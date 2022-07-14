@@ -1,0 +1,41 @@
+@use "../../components/Navbar/Navbar.module.scss" as n;
+@use "../variables" as v;
+
+.productDetails {
+  padding-top: n.$navbar-height;
+  background-color: v.$color-light-grey;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    column-gap: 5rem;
+  }
+}
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 992px) {
+  .productDetails {
+    .container {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .productDetails {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  }
+}
