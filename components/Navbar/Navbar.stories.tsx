@@ -7,7 +7,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Navbar>;
 
-const Template: ComponentStory<typeof Navbar> = () => <Navbar />;
+const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Base = Template.bind({});
 Base.storyName = "Navbar";
