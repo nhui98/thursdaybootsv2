@@ -37,12 +37,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   await dbConnect();
 
-  if (!context.params) throw new Error("bad parameters");
+  //@ts-ignore
+  const { gender, category, style } = params;
+  let products = [] as any;
 
-  const products = await Product.find(context.params);
+  if (style === "allstyles") {
+    products = await Product.find({ gender, category });
+  } else {
+    products = await Product.find({ gender, category, style });
+  }
 
   return {
     props: {

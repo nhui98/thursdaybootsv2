@@ -27,6 +27,7 @@ export default function Sidebar({ gender, category, style }: SidebarProps) {
               setActive={setActive}
               key={data.id}
               styleQuery={style}
+              categoryQuery={category}
             />
           ))}
       </div>
@@ -42,10 +43,12 @@ interface CategoryListProps {
     id: number;
     style: string;
     href: string;
+    text: string;
   }[];
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
   styleQuery: string;
+  categoryQuery: string;
 }
 
 const CategoryList = ({
@@ -54,6 +57,7 @@ const CategoryList = ({
   active,
   setActive,
   styleQuery,
+  categoryQuery,
 }: CategoryListProps) => {
   return (
     <div className={s.category}>
@@ -69,14 +73,17 @@ const CategoryList = ({
           active === category.toLowerCase() ? s.active : ""
         }`}
       >
-        {styles.map(({ id, href, style }) => (
+        {styles.map(({ id, href, style, text }) => (
           <Link href={href} key={id}>
             <a
               className={`${s.style} ${
-                style.toLowerCase() === styleQuery ? s.active : ""
+                (category.toLowerCase() === categoryQuery.toLowerCase() &&
+                  style.toLowerCase()) === styleQuery
+                  ? s.active
+                  : ""
               }`}
             >
-              {style}
+              {text}
             </a>
           </Link>
         ))}
