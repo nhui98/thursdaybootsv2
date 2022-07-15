@@ -2,13 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Featured from "../components/Featured/Featured";
 import FeaturedCollection from "../components/FeaturedCollection/FeaturedCollection";
-import Footer from "../components/Footer/Footer";
 import Prefooter from "../components/Prefooter/Prefooter";
 import Slideshow from "../components/Slideshow/Slideshow";
 import Testimonials from "../components/Testimonials/Testimonials";
 import s from "../styles/pages/home.module.scss";
 
-const Home: NextPage = () => {
+const Home: NextPage & { home: boolean } = () => {
   return (
     <div className={s.home}>
       <Head>
@@ -19,23 +18,17 @@ const Home: NextPage = () => {
 
       {/* Slideshow */}
       <Slideshow />
-
       {/* Testimonials */}
       <Testimonials />
-
       {/* Featured */}
       <Featured />
-
       {/* Featured Collection */}
       <FeaturedCollection />
-
       {/* Prefooter */}
       <Prefooter />
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
 
+Home.home = true;
 export default Home;

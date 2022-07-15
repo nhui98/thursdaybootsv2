@@ -11,37 +11,38 @@ import { mensMenuData, womensMenuData } from "./data";
 import styles from "./Navbar.module.scss";
 import { NavbarLinkProps } from "./Navbar.types";
 
-export default function Navbar() {
+export default function Navbar({ home }: { home: boolean }) {
   const [active, setActive] = useState<boolean>(false);
 
   return (
     <>
       <Flyout active={active} setActive={setActive} />
       <Overlay active={active} setActive={setActive} />
-      <nav className={styles.navbar}>
+
+      <nav className={`${styles.navbar} ${home ? styles.home : ""}`}>
         <div className={styles.left}>
+          {/* hamburger icon on small device */}
           <button className={styles.hamburger} onClick={() => setActive(true)}>
             <GiHamburgerMenu />
           </button>
+          {/* search icon on medium device */}
           <div className={styles.search}>
             <AiOutlineSearch />
           </div>
 
+          {/* Dropdown menus */}
           <NavbarLink href={"/mens"} title={"MEN"} icon={AiOutlineDown} />
-          <Menu
-            category={mensMenuData.category}
-            promotions={mensMenuData.promotions}
-          />
+          <Menu {...mensMenuData} />
           <NavbarLink href={"/womens"} title={"WOMEN"} icon={AiOutlineDown} />
-          <Menu
-            category={womensMenuData.category}
-            promotions={womensMenuData.promotions}
-          />
+          <Menu {...womensMenuData} />
+
           <NavbarLink href={"/about"} title={"ABOUT"} />
         </div>
+
         <div className={styles.middle}>
           <div className={styles.logo}>Thursday Boots</div>
         </div>
+
         <div className={styles.right}>
           <div className={styles.rightLinks}>
             <NavbarLink href={"/help"} title={"HELP"} />

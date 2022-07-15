@@ -20,5 +20,9 @@
     text-align: center;
     text-transform: capitalize;
     padding: 1rem 0;
+
+    img {
+      height: unset;
+    }
   }
 }

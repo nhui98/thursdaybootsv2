@@ -1,12 +1,19 @@
+import { NextComponentType } from "next";
 import type { AppProps } from "next/app";
+import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import "../styles/index.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
+type CustomAppProps = AppProps & {
+  Component: NextComponentType & { home?: true };
+};
+
+function MyApp({ Component, pageProps }: CustomAppProps) {
   return (
     <>
-      <Navbar />
+      <Navbar home={!!Component.home} />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
