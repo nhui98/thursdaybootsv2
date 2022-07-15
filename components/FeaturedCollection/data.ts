@@ -25,7 +25,7 @@ export const featuredCollectionData: featuredCollectionType = {
     collection: [
       {
         id: 1,
-        href: "/",
+        href: "/product/mens-boots-captain-matteblack",
         img: "/images/collection/collection-mens-1.webp",
         altImg: "/images/collection/collection-mens-1-alt.webp",
         style: "Captain",
@@ -34,7 +34,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 2,
-        href: "/",
+        href: "/product/mens-boots-cavalier-sandstone",
         img: "/images/collection/collection-mens-2.webp",
         altImg: "/images/collection/collection-mens-2-alt.webp",
         style: "Cavalier",
@@ -43,7 +43,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 3,
-        href: "/",
+        href: "/product/mens-boots-cadet-walnut",
         img: "/images/collection/collection-mens-3.webp",
         altImg: "/images/collection/collection-mens-3-alt.webp",
         style: "Cadet",
@@ -52,7 +52,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 4,
-        href: "/",
+        href: "/product/mens-boots-wingtip-burgandy",
         img: "/images/collection/collection-mens-4.webp",
         altImg: "/images/collection/collection-mens-4-alt.webp",
         style: "Wingtip",
@@ -66,7 +66,7 @@ export const featuredCollectionData: featuredCollectionType = {
     collection: [
       {
         id: 1,
-        href: "/",
+        href: "/product/womens-boots-legend-matteblack",
         img: "/images/collection/collection-womens-1.webp",
         altImg: "/images/collection/collection-womens-1-alt.webp",
         style: "Legend",
@@ -75,7 +75,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 2,
-        href: "/",
+        href: "/product/womens-boots-knockout-matteblack",
         img: "/images/collection/collection-womens-2.webp",
         altImg: "/images/collection/collection-womens-2-alt.webp",
         style: "Knockout",
@@ -84,7 +84,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 3,
-        href: "/",
+        href: "/product/womens-boots-captain-matteblack",
         img: "/images/collection/collection-womens-3.webp",
         altImg: "/images/collection/collection-womens-3-alt.webp",
         style: "Captain",
@@ -93,7 +93,7 @@ export const featuredCollectionData: featuredCollectionType = {
       },
       {
         id: 4,
-        href: "/",
+        href: "/product/womens-boots-combat-matteblack",
         img: "/images/collection/collection-womens-4.webp",
         altImg: "/images/collection/collection-womens-4-alt.webp",
         style: "Combat",

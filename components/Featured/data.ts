@@ -8,36 +8,36 @@ export const featuredData: featuredType[] = [
   {
     img: "/images/featured/featured-1.webp",
     title: "men's boots",
-    href: "/",
+    href: "/mens/boots/allstyles",
   },
   {
     img: "/images/featured/featured-2.webp",
     title: "women's boots",
-    href: "/",
+    href: "/womens/boots/allstyles",
   },
   {
     img: "/images/featured/featured-3.webp",
     title: "men's shoes",
-    href: "/",
+    href: "/mens/shoes/allstyles",
   },
   {
     img: "/images/featured/featured-4.webp",
     title: "men's loafers",
-    href: "/",
+    href: "/mens/shoes/loafer",
   },
   {
     img: "/images/featured/featured-5.webp",
     title: "men's sneakers",
-    href: "/",
+    href: "/mens/sneakers/allstyles",
   },
   {
     img: "/images/featured/featured-6.webp",
     title: "women's sneakers",
-    href: "/",
+    href: "/womens/sneakers/allstyles",
   },
   {
     img: "/images/featured/featured-7.webp",
     title: "women's heels",
-    href: "/",
+    href: "/womens/boots/heel",
   },
 ];

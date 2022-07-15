@@ -14,11 +14,11 @@ export const prefooterData: prefooterType = {
   buttons: [
     {
       text: "shop men",
-      href: "/",
+      href: "/mens/boots/allstyles",
     },
     {
       text: "shop women",
-      href: "/",
+      href: "/womens/boots/allstyles",
     },
   ],
 };

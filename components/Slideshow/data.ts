@@ -27,11 +27,11 @@ export const SlideshowData: SlideshowItemType[] = [
     buttons: [
       {
         text: "shop men",
-        href: "/",
+        href: "/mens/boots/allstyles",
       },
       {
         text: "shop women",
-        href: "/",
+        href: "/womens/boots/allstyles",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const SlideshowData: SlideshowItemType[] = [
     buttons: [
       {
         text: "shop women's boots",
-        href: "/",
+        href: "/womens/boots/allstyles",
       },
     ],
   },
@@ -59,11 +59,11 @@ export const SlideshowData: SlideshowItemType[] = [
     buttons: [
       {
         text: "shop men",
-        href: "/",
+        href: "/mens/sneakers/allstyles",
       },
       {
         text: "shop women",
-        href: "/",
+        href: "/womens/sneakers/allstyles",
       },
     ],
   },
