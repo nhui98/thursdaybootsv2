@@ -62,32 +62,27 @@ export const mensMenuData: MenuDataType = {
   ],
   promotions: [
     {
-      img: "/images/menu/men-promoimg-1.webp",
-      href: "/",
+      img: "/images/navbar-menu/men-promoimg-1.webp",
       title: "rugged & resilient",
       description: "thoughtfully handcrafted to go the extra mile",
     },
     {
-      img: "/images/menu/men-promoimg-2.webp",
-      href: "/",
+      img: "/images/navbar-menu/men-promoimg-2.webp",
       title: "year-round essentials",
       description: "meet the premier low top, your new go-to leather sneaker",
     },
     {
-      img: "/images/menu/men-promoimg-3.webp",
-      href: "/",
+      img: "/images/navbar-menu/men-promoimg-3.webp",
       title: "dress to impress",
       description: "the saint in hickory hand-finished full-grain leather",
     },
     {
-      img: "/images/menu/men-promoimg-4.webp",
-      href: "/",
+      img: "/images/navbar-menu/men-promoimg-4.webp",
       title: "leather belts",
       description: "the perfect finishing touch",
     },
     {
-      img: "/images/menu/men-promoimg-5.webp",
-      href: "/",
+      img: "/images/navbar-menu/men-promoimg-5.webp",
       title: "so fresh & so clean",
       description: "premium shoe care for your favourite pair of boots",
     },
@@ -134,32 +129,27 @@ export const womensMenuData: MenuDataType = {
   ],
   promotions: [
     {
-      img: "/images/menu/women-promoimg-1.webp",
-      href: "/",
+      img: "/images/navbar-menu/women-promoimg-1.webp",
       title: "be legendary",
       description: "thoughtfully handcrafted to go the extra mile",
     },
     {
-      img: "/images/menu/women-promoimg-2.webp",
-      href: "/",
+      img: "/images/navbar-menu/women-promoimg-2.webp",
       title: "saddle up with the rodeo",
       description: "our latest western boot, now available in 4 colors",
     },
     {
-      img: "/images/menu/women-promoimg-3.webp",
-      href: "/",
+      img: "/images/navbar-menu/women-promoimg-3.webp",
       title: "the premier low top",
       description: "now available in 6 new colors",
     },
     {
-      img: "/images/menu/women-promoimg-4.webp",
-      href: "/",
+      img: "/images/navbar-menu/women-promoimg-4.webp",
       title: "leather belts",
       description: "the perfect finishing touch to any outfit",
     },
     {
-      img: "/images/menu/women-promoimg-5.webp",
-      href: "/",
+      img: "/images/navbar-menu/women-promoimg-5.webp",
       title: "so fresh & so clean",
       description: "premium shoe care for your favourite pair of boots",
     },
@@ -184,7 +174,6 @@ export interface StyleType {
 
 export interface PromotionType {
   img: string;
-  href: string;
   title: string;
   description: string;
 }

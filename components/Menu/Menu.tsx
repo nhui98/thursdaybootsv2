@@ -12,10 +12,9 @@ export default function Menu({ category, promotions }: MenuDataType) {
         ))}
       </div>
       <div className={s.promotionsList}>
-        {promotions.map(({ img, href, title, description }) => (
+        {promotions.map(({ img, title, description }) => (
           <PromotionItem
             img={img}
-            href={href}
             title={title}
             description={description}
             key={title}
