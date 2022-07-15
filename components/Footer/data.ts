@@ -33,81 +33,73 @@ export interface socialType {
 export const footerData: footerDataType = {
   sitemap: [
     {
-      title: "shop",
+      title: "Shop",
       links: [
         {
-          linkText: "men's boots",
-          href: "/",
+          linkText: "Men's Boots",
+          href: "/mens/boots/allstyles",
         },
         {
-          linkText: "women's boots",
-          href: "/",
+          linkText: "Women's Boots",
+          href: "/womens/boots/allstyles",
         },
         {
-          linkText: "men's sneakers",
-          href: "/",
+          linkText: "Men's Sneakers",
+          href: "/mens/sneakers/allstyles",
         },
         {
-          linkText: "men's shoes",
-          href: "/",
+          linkText: "Women's Sneakers",
+          href: "/womens/sneakers/allstyles",
         },
         {
-          linkText: "accessories",
-          href: "/",
+          linkText: "Men's Shoes",
+          href: "/mens/shoes/allstyles",
         },
       ],
     },
     {
-      title: "about",
+      title: "About",
       links: [
         {
-          linkText: "our story",
-          href: "/",
+          linkText: "Our Story",
+          href: "/about",
         },
         {
-          linkText: "featured press",
-          href: "/",
+          linkText: "Reviews",
+          href: "/reviews",
         },
         {
-          linkText: "reviews",
-          href: "/",
+          linkText: "Locations",
+          href: "/locations",
         },
         {
-          linkText: "locations",
-          href: "/",
-        },
-        {
-          linkText: "ambassadors",
-          href: "/",
+          linkText: "Ambassadors",
+          href: "/ambassadors",
         },
       ],
     },
     {
-      title: "support",
+      title: "Support",
       links: [
         {
-          linkText: "faq",
-          href: "/",
+          linkText: "FAQ",
+          href: "/faq",
         },
         {
-          linkText: "shipping & returns",
-          href: "/",
+          linkText: "Shipping & Returns",
+          href: "/shipping",
         },
         {
-          linkText: "shoe care",
-          href: "/",
+          linkText: "Terms of Service",
+          href: "/terms-of-service",
         },
         {
-          linkText: "terms of service",
-          href: "/",
+          linkText: "Privacy Policy",
+          href: "/privacy-statement",
         },
         {
-          linkText: "privacy policy",
-          href: "/",
-        },
-        {
-          linkText: "contact us",
-          href: "/",
+          linkText: "Contact Us",
+          href: "/contact-us",
         },
       ],
     },
@@ -119,23 +111,23 @@ export const footerData: footerDataType = {
     socialLinks: [
       {
         icon: FaInstagram,
-        href: "/",
+        href: "https://www.instagram.com/thursdayboots/",
       },
       {
         icon: FaFacebookSquare,
-        href: "/",
+        href: "https://www.facebook.com/ThursdayBoots/",
       },
       {
         icon: FaTwitter,
-        href: "/",
+        href: "https://twitter.com/ThursdayBootCo",
       },
       {
         icon: FaPinterestSquare,
-        href: "/",
+        href: "https://www.pinterest.co.uk/thursdayboots/",
       },
       {
         icon: FaYoutube,
-        href: "/",
+        href: "https://www.youtube.com/c/Thursdayboots",
       },
     ],
   },
