@@ -15,12 +15,12 @@ export const mensMenuData: MenuDataType = {
         },
         {
           style: "chelsea",
-          href: "/mens/boots/chelsea",
+          href: "/mens/boots/cavalier",
           src: "/images/flyout/flyout-men-chelsea.webp",
         },
         {
           style: "chukka",
-          href: "/mens/boots/chukka",
+          href: "/mens/boots/scout",
           src: "/images/flyout/flyout-men-chukka.webp",
         },
       ],
@@ -45,17 +45,17 @@ export const mensMenuData: MenuDataType = {
       styles: [
         {
           style: "dress shoes",
-          href: "/mens/shoes/dress",
+          href: "/mens/shoes/executive",
           src: "/images/flyout/flyout-men-dress.webp",
         },
         {
           style: "loafers",
-          href: "/mens/shoes/loafers",
+          href: "/mens/shoes/loafer",
           src: "/images/flyout/flyout-men-loafer.webp",
         },
         {
           style: "boat shoes",
-          href: "/mens/shoes/boats",
+          href: "/mens/shoes/boat",
         },
       ],
     },
