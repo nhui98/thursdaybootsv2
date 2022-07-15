@@ -31,16 +31,26 @@ export default function Navbar({ home }: { home: boolean }) {
           </div>
 
           {/* Dropdown menus */}
-          <NavbarLink href={"/mens"} title={"MEN"} icon={AiOutlineDown} />
+          <NavbarLink
+            href={"/mens/boots/allstyles"}
+            title={"MEN"}
+            icon={AiOutlineDown}
+          />
           <Menu {...mensMenuData} />
-          <NavbarLink href={"/womens"} title={"WOMEN"} icon={AiOutlineDown} />
+          <NavbarLink
+            href={"/womens/boots/allstyles"}
+            title={"WOMEN"}
+            icon={AiOutlineDown}
+          />
           <Menu {...womensMenuData} />
 
           <NavbarLink href={"/about"} title={"ABOUT"} />
         </div>
 
         <div className={styles.middle}>
-          <div className={styles.logo}>Thursday Boots</div>
+          <Link href={`/`}>
+            <a className={styles.logo}>Thursday Boots</a>
+          </Link>
         </div>
 
         <div className={styles.right}>
