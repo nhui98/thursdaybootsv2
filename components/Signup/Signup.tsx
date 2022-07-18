@@ -1,4 +1,5 @@
 import { Form, Formik } from "formik";
+import Link from "next/link";
 import * as Yup from "yup";
 import Input from "../FormikComponents/Input";
 import s from "./Signup.module.scss";
@@ -60,6 +61,13 @@ export default function Signup() {
         <button type="submit" className={s.submitBtn}>
           Submit
         </button>
+
+        <div className={s.login}>
+          <span>Already registered?</span>
+          <Link href="/login">
+            <a className={s.link}>Login here</a>
+          </Link>
+        </div>
       </Form>
     </Formik>
   );
