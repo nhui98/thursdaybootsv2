@@ -28,6 +28,7 @@ const validationSchema = Yup.object({
     .required("This field is required."),
   password: Yup.string()
     .min(6, "Password must be between 6 and 18 characters.")
+    .max(18, "Password must be between 6 and 18 characters.")
     .required("This field is required."),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), ""], "Passwords must match.")
