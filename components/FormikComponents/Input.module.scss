@@ -1,0 +1,41 @@
+@use "../../styles/variables" as v;
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 100%;
+
+  .labelError {
+    display: flex;
+    justify-content: space-between;
+
+    .error {
+      color: #ed4337;
+    }
+  }
+
+  input {
+    border: 1px solid v.$color-offwhite;
+    outline: none;
+    padding: 0.75rem 1rem;
+    transition: border 0.5s;
+    background-color: unset;
+
+    &:focus {
+      border: 1px solid v.$color-black;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .formControl {
+    .labelError {
+      flex-wrap: wrap;
+
+      label {
+        padding-right: 1rem;
+      }
+    }
+  }
+}
