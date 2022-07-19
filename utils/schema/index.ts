@@ -1,5 +1,6 @@
 import { gql } from "apollo-server-micro";
 import { typeDef as Product } from "./product";
+import { typeDef as User } from "./user";
 
 const Query = gql`
   type Query {
@@ -11,4 +12,4 @@ const Query = gql`
   }
 `;
 
-export const typeDefs = [Query, Product];
+export const typeDefs = [Query, Product, User];
