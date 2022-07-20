@@ -1,0 +1,39 @@
+@use "../variables" as v;
+
+.information {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto;
+    width: 50%;
+    padding: 3rem 2rem;
+
+    .forms {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 1rem;
+      width: 30rem;
+
+      .logo {
+        font-family: v.$logo-font;
+        font-size: 3rem;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+  }
+
+  .cart {
+    width: 50%;
+    background-color: v.$color-light-grey;
+    padding: 3rem 2rem;
+  }
+}

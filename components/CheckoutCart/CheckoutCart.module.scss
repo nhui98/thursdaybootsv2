@@ -1,0 +1,102 @@
+@use "../../styles/variables" as v;
+
+.checkoutCart {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  row-gap: 2rem;
+
+  .basketItems {
+    display: flex;
+    flex-direction: column;
+
+    .card {
+      display: flex;
+      column-gap: 1rem;
+
+      .image {
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+        padding: 0.25rem;
+
+        img {
+          border: 1px solid v.$color-grey;
+          border-radius: 1rem;
+        }
+
+        .quantity {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50%;
+          font-size: 0.75rem;
+          font-weight: 500;
+          background-color: v.$color-dark-grey;
+          color: v.$color-white;
+        }
+      }
+
+      .details {
+        display: flex;
+        justify-content: space-between;
+        width: 20rem;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .title {
+            text-transform: capitalize;
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .totals {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    .subtotal,
+    .shipping,
+    .total {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .total {
+      align-items: center;
+      border-top: 1px solid v.$color-grey;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+
+        .currency {
+          font-size: 0.875rem;
+        }
+
+        .price {
+          align-items: center;
+          font-size: 2rem;
+          padding-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
