@@ -6,18 +6,18 @@ import Accordion from "./Accordion/Accordion";
 import s from "./Flyout.module.scss";
 
 export interface FlyoutProps {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
+  flyoutActive: boolean;
+  setFlyoutActive: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Flyout({ active, setActive }: FlyoutProps) {
+export default function Flyout({ flyoutActive, setFlyoutActive }: FlyoutProps) {
   return (
-    <div className={`${s.flyout} ${active ? s.active : ""}`}>
+    <div className={`${s.flyout} ${flyoutActive ? s.active : ""}`}>
       <div className={s.header}>
         <div className={s.search}>
           <AiOutlineSearch />
         </div>
-        <button className={s.close} onClick={() => setActive(false)}>
+        <button className={s.close} onClick={() => setFlyoutActive(false)}>
           <AiOutlineClose />
         </button>
       </div>

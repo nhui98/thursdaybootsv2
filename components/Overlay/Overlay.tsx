@@ -1,15 +1,25 @@
 import { Dispatch, SetStateAction } from "react";
 import s from "./Overlay.module.scss";
 interface OverlayProps {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
+  flyoutActive: boolean;
+  setFlyoutActive: Dispatch<SetStateAction<boolean>>;
+  basketActive: boolean;
+  setBasketActive: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Overlay({ active, setActive }: OverlayProps) {
+export default function Overlay({
+  flyoutActive,
+  setFlyoutActive,
+  basketActive,
+  setBasketActive,
+}: OverlayProps) {
   return (
     <button
-      className={`${s.overlay} ${active ? s.active : ""}`}
-      onClick={() => setActive(false)}
+      className={`${s.overlay} ${flyoutActive || basketActive ? s.active : ""}`}
+      onClick={() => {
+        setFlyoutActive(false);
+        setBasketActive(false);
+      }}
     />
   );
 }

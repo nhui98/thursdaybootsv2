@@ -29,6 +29,8 @@ const ProductDetails: NextPage = ({ product }: any) => {
           color={color}
           sizes={sizes}
           productFeatures={productFeatures}
+          slug={slug}
+          image={images[0]}
         />
       </section>
 

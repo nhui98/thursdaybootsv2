@@ -4,6 +4,7 @@ import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
 import { BiShoppingBag } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiAccountCircleLine } from "react-icons/ri";
+import Basket from "../Basket/Basket";
 import Flyout from "../Flyout/Flyout";
 import Menu from "../Menu/Menu";
 import Overlay from "../Overlay/Overlay";
@@ -12,17 +13,26 @@ import styles from "./Navbar.module.scss";
 import { NavbarLinkProps } from "./Navbar.types";
 
 export default function Navbar({ home }: { home: boolean }) {
-  const [active, setActive] = useState<boolean>(false);
+  const [flyoutActive, setFlyoutActive] = useState(false);
+  const [basketActive, setBasketActive] = useState(false);
 
   return (
     <>
-      <Flyout active={active} setActive={setActive} />
-      <Overlay active={active} setActive={setActive} />
+      <Flyout flyoutActive={flyoutActive} setFlyoutActive={setFlyoutActive} />
+      <Overlay
+        flyoutActive={flyoutActive}
+        setFlyoutActive={setFlyoutActive}
+        basketActive={basketActive}
+        setBasketActive={setBasketActive}
+      />
 
       <nav className={`${styles.navbar} ${home ? styles.home : ""}`}>
         <div className={styles.left}>
           {/* hamburger icon on small device */}
-          <button className={styles.hamburger} onClick={() => setActive(true)}>
+          <button
+            className={styles.hamburger}
+            onClick={() => setFlyoutActive(true)}
+          >
             <GiHamburgerMenu />
           </button>
           {/* search icon on medium device */}
@@ -65,12 +75,17 @@ export default function Navbar({ home }: { home: boolean }) {
             <div className={styles.search}>
               <AiOutlineSearch />
             </div>
-            <div className={styles.basket}>
+            <button
+              className={styles.basket}
+              onClick={() => setBasketActive(true)}
+            >
               <BiShoppingBag />
-            </div>
+            </button>
           </div>
         </div>
       </nav>
+
+      <Basket basketActive={basketActive} setBasketActive={setBasketActive} />
     </>
   );
 }
