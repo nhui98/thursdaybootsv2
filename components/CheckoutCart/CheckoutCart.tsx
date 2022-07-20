@@ -1,11 +1,16 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useBasket } from "../../context/basket-context";
 import s from "./CheckoutCart.module.scss";
 
 export default function CheckoutCart() {
   const { state } = useBasket();
   const { basket, totalPrice } = state;
+  const router = useRouter();
 
-  console.log(basket);
+  useEffect(() => {
+    if (basket.length === 0) router.replace("/");
+  }, [basket.length, router]);
 
   return (
     <div className={s.checkoutCart}>

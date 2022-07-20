@@ -12,13 +12,18 @@ export function basketReducer(state: State, action: Action) {
         (item) => item.slug === slug && item.size === size
       );
 
-      if (!itemExistsInBasket)
-        return {
+      if (!itemExistsInBasket) {
+        const returnObject = {
           basket: [...basket, payload],
           totalPrice: totalPrice + price * quantity,
         };
 
-      return {
+        localStorage.setItem("basket", JSON.stringify(returnObject));
+
+        return returnObject;
+      }
+
+      const returnObject = {
         basket: basket.map((item) =>
           item === itemExistsInBasket
             ? {
@@ -30,6 +35,10 @@ export function basketReducer(state: State, action: Action) {
         ),
         totalPrice: totalPrice + price * quantity,
       };
+
+      localStorage.setItem("basket", JSON.stringify(returnObject));
+
+      return returnObject;
     }
     case "REMOVE": {
       const { payload } = action;
@@ -41,9 +50,20 @@ export function basketReducer(state: State, action: Action) {
 
       if (!itemInBasket) return { ...state };
 
-      return {
+      const returnObject = {
         basket: basket.filter((item) => item !== itemInBasket),
         totalPrice: totalPrice - itemInBasket.price,
+      };
+
+      localStorage.setItem("basket", JSON.stringify(returnObject));
+
+      return returnObject;
+    }
+    case "HYDRATE": {
+      const { payload } = action;
+
+      return {
+        ...payload,
       };
     }
     default: {
