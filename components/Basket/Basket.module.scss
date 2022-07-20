@@ -1,6 +1,7 @@
 @use "../../styles/variables" as v;
 
 $sidePadding: 2rem;
+$sidePaddingSmall: 1rem;
 
 .basket {
   position: fixed;
@@ -9,10 +10,11 @@ $sidePadding: 2rem;
   z-index: 101;
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  max-width: 30rem;
+  width: 100%;
   min-width: 300px;
   background-color: v.$color-white;
-  border-left: 1px solid black;
+  border-left: 1px solid v.$color-black-5;
   height: 100vh;
   transform: translateX(30rem);
   transition: transform 0.5s, opacity 0.5s;
@@ -27,7 +29,7 @@ $sidePadding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $sidePadding;
+    padding: 2rem $sidePadding;
     border-bottom: 1px solid v.$color-offwhite;
 
     .close {
@@ -101,6 +103,32 @@ $sidePadding: 2rem;
       .lock {
         font-size: 1.5rem;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .basket {
+    .header {
+      padding: 2rem $sidePaddingSmall;
+    }
+
+    .basketItems {
+      padding: 2rem $sidePaddingSmall;
+
+      .basketItem {
+        .image {
+          width: 6rem;
+          height: 6rem;
+        }
+      }
+    }
+
+    .footer {
+      padding: 2rem $sidePaddingSmall;
     }
   }
 }

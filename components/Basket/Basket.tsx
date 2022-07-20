@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 import { AiFillLock, AiOutlineClose } from "react-icons/ai";
-import { BasketProductType, useBasket } from "../../context/basket-context";
+import { useBasket } from "../../context/basket-context";
+import { BasketProductType } from "../../context/basket.types";
 import s from "./Basket.module.scss";
 
 export interface BasketProps {
@@ -12,8 +14,12 @@ export interface BasketProps {
 export default function Basket({ basketActive, setBasketActive }: BasketProps) {
   const { state } = useBasket();
   const { basket, totalPrice } = state;
+  const router = useRouter();
 
-  const checkoutHandler = () => {};
+  const checkoutHandler = () => {
+    setBasketActive(false);
+    router.push(`/checkout`);
+  };
 
   return (
     <div className={`${s.basket} ${basketActive ? s.active : ""}`}>
