@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Basket from "./Basket";
+import { MockBasketProps } from "./Baseket.mock";
+import Basket, { BasketProps } from "./Basket";
 
 export default {
   title: "components/Basket/Basket",
@@ -7,8 +8,10 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Basket>;
 
-const Template: ComponentStory<typeof Basket> = () => <Basket />;
+const Template: ComponentStory<typeof Basket> = (args) => <Basket {...args} />;
 
 export const Base = Template.bind({});
-Base.args = {};
+Base.args = {
+  ...MockBasketProps,
+} as BasketProps;
 Base.storyName = "Basket";

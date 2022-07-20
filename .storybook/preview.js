@@ -1,11 +1,8 @@
 // import { addDecorator } from "@storybook/react";
 // import * as NextImage from "next/image";
+import { BasketProvider } from "../context/basket-context";
 import "../styles/index.scss";
 
-// add global decorators
-// addDecorator((story) => story());
-
-//
 const BREAKPOINTS_INT = {
   xs: 576,
   sm: 768,
@@ -48,3 +45,8 @@ export const parameters = {
   },
   viewport: { viewports: customViewports },
 };
+
+// add global decorators
+export const decorators = [
+  (story) => <BasketProvider>{story()}</BasketProvider>,
+];
