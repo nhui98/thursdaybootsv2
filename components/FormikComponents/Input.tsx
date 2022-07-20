@@ -19,3 +19,31 @@ const Input = ({ label, name, ...rest }: InputProps) => (
 );
 
 export default Input;
+
+interface SelectInputProps {
+  label: string;
+  name: string;
+  options: {
+    key: string;
+    value: string;
+  }[];
+}
+
+export const SelectInput = ({
+  label,
+  name,
+  options,
+  ...rest
+}: SelectInputProps) => (
+  <div className={s.formControl}>
+    <label htmlFor={name}>{label}</label>
+    <Field as="select" id={name} name={name} {...rest}>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.key}
+        </option>
+      ))}
+    </Field>
+    <ErrorMessage name={name} component={"div"} className="error" />
+  </div>
+);
