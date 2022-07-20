@@ -1,8 +1,19 @@
 import * as React from "react";
-import type { ProductType } from "../utils/models/Product";
 
-type State = { basket: ProductType[] };
-type Action = { type: "ADD"; payload: ProductType };
+export interface BasketProductType {
+  style: string;
+  price: number;
+  slug: string;
+  color: string;
+  image: string;
+  size: string;
+  quantity: number;
+}
+
+type State = { basket: BasketProductType[]; totalPrice: number };
+type Action =
+  | { type: "ADD"; payload: BasketProductType }
+  | { type: "REMOVE"; payload: { slug: string; size: string } };
 // eslint-disable-next-line no-unused-vars
 type Dispatch = (action: Action) => void;
 
@@ -16,10 +27,49 @@ const BasketContext = React.createContext<BasketContextType | undefined>(
 );
 
 function basketReducer(state: State, action: Action) {
+  const { basket, totalPrice } = state;
+
   switch (action.type) {
     case "ADD": {
+      const { payload } = action;
+      const { quantity, price, slug, size } = payload;
+
+      const itemExistsInBasket = basket.find(
+        (item) => item.slug === slug && item.size === size
+      );
+
+      if (!itemExistsInBasket)
+        return {
+          basket: [...basket, payload],
+          totalPrice: totalPrice + price * quantity,
+        };
+
       return {
-        basket: [...state.basket, action.payload],
+        basket: basket.map((item) =>
+          item === itemExistsInBasket
+            ? {
+                ...item,
+                quantity: item.quantity + quantity,
+                price: item.price + price * quantity,
+              }
+            : item
+        ),
+        totalPrice: totalPrice + price * quantity,
+      };
+    }
+    case "REMOVE": {
+      const { payload } = action;
+      const { slug, size } = payload;
+
+      const itemInBasket = basket.find(
+        (item) => item.slug === slug && item.size === size
+      );
+
+      if (!itemInBasket) return { ...state };
+
+      return {
+        basket: basket.filter((item) => item !== itemInBasket),
+        totalPrice: totalPrice - itemInBasket.price,
       };
     }
     default: {
@@ -28,8 +78,13 @@ function basketReducer(state: State, action: Action) {
   }
 }
 
+const INITIAL_STATE: State = {
+  basket: [],
+  totalPrice: 0,
+};
+
 export function BasketProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = React.useReducer(basketReducer, { basket: [] });
+  const [state, dispatch] = React.useReducer(basketReducer, INITIAL_STATE);
   const value = { state, dispatch };
 
   return (
