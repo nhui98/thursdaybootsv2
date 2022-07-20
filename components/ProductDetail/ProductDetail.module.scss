@@ -67,6 +67,11 @@
     font-weight: bold;
     padding: 0.75rem;
     cursor: pointer;
+
+    &.disabled {
+      cursor: unset;
+      opacity: 0.5;
+    }
   }
 
   .productFeatures {

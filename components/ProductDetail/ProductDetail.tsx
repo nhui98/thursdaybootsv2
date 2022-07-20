@@ -4,6 +4,7 @@ import {
   AiOutlineMinus,
   AiOutlinePlus,
 } from "react-icons/ai";
+import { useBasket } from "../../context/basket-context";
 import s from "./ProductDetail.module.scss";
 
 export interface ProductDetailProps {
@@ -15,6 +16,8 @@ export interface ProductDetailProps {
     stock: number;
   }[];
   productFeatures: string[];
+  slug: string;
+  image: string;
 }
 
 export default function ProductDetail({
@@ -23,9 +26,28 @@ export default function ProductDetail({
   color,
   sizes,
   productFeatures,
+  slug,
+  image,
 }: ProductDetailProps) {
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [featuresActive, setFeaturesActive] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const { dispatch } = useBasket();
+
+  const addToCart = () => {
+    if (!selectedSize) return;
+    dispatch({
+      type: "ADD",
+      payload: {
+        style,
+        price,
+        slug,
+        color,
+        image,
+        size: selectedSize,
+        quantity: 1,
+      },
+    });
+  };
 
   return (
     <div className={s.details}>
@@ -49,7 +71,13 @@ export default function ProductDetail({
           </button>
         ))}
       </div>
-      <button className={s.addtocart}>Add to cart</button>
+      <button
+        className={`${s.addtocart} ${!selectedSize ? s.disabled : ""}`}
+        onClick={addToCart}
+        disabled={!selectedSize}
+      >
+        Add to cart
+      </button>
       <div className={s.productFeatures}>
         <button
           className={s.title}
