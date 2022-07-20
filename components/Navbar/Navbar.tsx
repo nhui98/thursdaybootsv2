@@ -4,6 +4,7 @@ import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
 import { BiShoppingBag } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiAccountCircleLine } from "react-icons/ri";
+import { useBasket } from "../../context/basket-context";
 import Basket from "../Basket/Basket";
 import Flyout from "../Flyout/Flyout";
 import Menu from "../Menu/Menu";
@@ -15,6 +16,10 @@ import { NavbarLinkProps } from "./Navbar.types";
 export default function Navbar({ home }: { home: boolean }) {
   const [flyoutActive, setFlyoutActive] = useState(false);
   const [basketActive, setBasketActive] = useState(false);
+
+  const {
+    state: { basket },
+  } = useBasket();
 
   return (
     <>
@@ -80,6 +85,9 @@ export default function Navbar({ home }: { home: boolean }) {
               onClick={() => setBasketActive(true)}
             >
               <BiShoppingBag />
+              <span className={styles.counter}>
+                {basket.reduce((acc, item) => acc + item.quantity, 0)}
+              </span>
             </button>
           </div>
         </div>
