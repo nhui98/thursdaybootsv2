@@ -1,0 +1,53 @@
+@use "../../styles/variables" as v;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  margin-top: 2rem;
+
+  .contactinfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+
+      .login {
+        color: v.$color-blue;
+        padding-left: 0.25rem;
+      }
+    }
+  }
+
+  .shippinginfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    .title {
+      font-weight: 500;
+    }
+
+    .two {
+      display: flex;
+      column-gap: 0.5rem;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+  .nextStepBtn {
+    color: v.$color-white;
+    padding: 0.75rem 2rem;
+    background-color: v.$color-green;
+    cursor: pointer;
+  }
+}
