@@ -18,7 +18,7 @@ export default function Basket({ basketActive, setBasketActive }: BasketProps) {
 
   const checkoutHandler = () => {
     setBasketActive(false);
-    router.push(`/checkout`);
+    router.push(`/checkout/information`);
   };
 
   return (

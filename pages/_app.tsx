@@ -6,15 +6,21 @@ import { BasketProvider } from "../context/basket-context";
 import "../styles/index.scss";
 
 type CustomAppProps = AppProps & {
-  Component: NextComponentType & { home?: true };
+  Component: NextComponentType & { home?: boolean; checkout?: boolean };
 };
 
 function MyApp({ Component, pageProps }: CustomAppProps) {
   return (
     <BasketProvider>
-      <Navbar home={!!Component.home} />
-      <Component {...pageProps} />
-      <Footer />
+      {!Component.checkout ? (
+        <>
+          <Navbar home={!!Component.home} />
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </BasketProvider>
   );
 }
