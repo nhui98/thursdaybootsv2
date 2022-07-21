@@ -41,11 +41,16 @@ $column-gap: 1.5rem;
 
     .basket {
       color: v.$color-white;
+      transition: background-color 0.5s, color 0.5s;
     }
 
     &:hover {
       background-color: v.$color-white;
       color: v.$color-black;
+
+      .basket {
+        color: v.$color-black;
+      }
     }
   }
 
