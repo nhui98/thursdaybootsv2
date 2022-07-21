@@ -1,7 +1,7 @@
 @use "../../components/Navbar/Navbar.module.scss" as n;
 
 .productListing {
-  margin-top: n.$navbar-height;
+  padding-top: n.$navbar-height;
   display: flex;
   justify-content: center;
   column-gap: 2rem;
