@@ -154,6 +154,10 @@ $column-gap: 1.5rem;
     &.home {
       background-color: v.$color-white;
       color: v.$color-black;
+
+      .basket {
+        color: v.$color-black;
+      }
     }
 
     .left,
