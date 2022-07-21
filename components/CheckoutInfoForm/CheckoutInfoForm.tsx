@@ -1,9 +1,10 @@
 import { Form, Formik } from "formik";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import * as Yup from "yup";
 import { useBasket } from "../../context/basket-context";
 import { useUser } from "../../context/user-context";
+import { Dispatch } from "../../context/user.types";
 import Input, { SelectInput } from "../FormikComponents/Input";
 import s from "./CheckoutInfoForm.module.scss";
 
@@ -57,6 +58,43 @@ const validationSchema = Yup.object({
   phone: Yup.string().required("Required"),
 });
 
+const onSubmit = (
+  values: InformationFormtype,
+  dispatch: Dispatch,
+  router: NextRouter
+) => {
+  const {
+    firstName,
+    address,
+    city,
+    country,
+    email,
+    lastName,
+    phone,
+    postcode,
+  } = values;
+
+  dispatch({
+    type: "UPDATE",
+    payload: {
+      user: {
+        firstName,
+        lastName,
+        email,
+      },
+      shippingAddress: {
+        country,
+        city,
+        postcode,
+        address,
+        phone,
+      },
+    },
+  });
+
+  router.push("/checkout/shipping");
+};
+
 export default function CheckoutInfoForm() {
   const { state: basketState } = useBasket();
   const { state: userState, dispatch: userDispatch } = useUser();
@@ -68,38 +106,7 @@ export default function CheckoutInfoForm() {
     <Formik
       initialValues={initialValues({ ...user, ...shippingAddress })}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        const {
-          firstName,
-          address,
-          city,
-          country,
-          email,
-          lastName,
-          phone,
-          postcode,
-        } = values;
-
-        userDispatch({
-          type: "UPDATE",
-          payload: {
-            user: {
-              firstName,
-              lastName,
-              email,
-            },
-            shippingAddress: {
-              country,
-              city,
-              postcode,
-              address,
-              phone,
-            },
-          },
-        });
-
-        router.push("/");
-      }}
+      onSubmit={(values) => onSubmit(values, userDispatch, router)}
     >
       <Form className={s.form}>
         <div className={s.contactinfo}>

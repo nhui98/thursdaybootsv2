@@ -31,12 +31,9 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const value = { state, dispatch };
 
   useEffect(() => {
-    ("cached user is being called");
+    const cachedUser = localStorage.getItem("user");
 
-    const cachedUser = localStorage.getItem("basket");
     if (cachedUser) {
-      ("cached user is being called");
-
       dispatch({
         type: "UPDATE",
         payload: JSON.parse(cachedUser) as State,
