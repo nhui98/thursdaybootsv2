@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { BasketProvider } from "../context/basket-context";
+import { UserProvider } from "../context/user-context";
 import "../styles/index.scss";
 
 type CustomAppProps = AppProps & {
@@ -11,17 +12,19 @@ type CustomAppProps = AppProps & {
 
 function MyApp({ Component, pageProps }: CustomAppProps) {
   return (
-    <BasketProvider>
-      {!Component.checkout ? (
-        <>
-          <Navbar home={!!Component.home} />
+    <UserProvider>
+      <BasketProvider>
+        {!Component.checkout ? (
+          <>
+            <Navbar home={!!Component.home} />
+            <Component {...pageProps} />
+            <Footer />
+          </>
+        ) : (
           <Component {...pageProps} />
-          <Footer />
-        </>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </BasketProvider>
+        )}
+      </BasketProvider>
+    </UserProvider>
   );
 }
 

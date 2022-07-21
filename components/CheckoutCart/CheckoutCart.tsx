@@ -1,23 +1,20 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useBasket } from "../../context/basket-context";
 import s from "./CheckoutCart.module.scss";
 
 export default function CheckoutCart() {
   const { state } = useBasket();
   const { basket, totalPrice } = state;
-  const router = useRouter();
-
-  useEffect(() => {
-    if (basket.length === 0) router.replace("/");
-  }, [basket.length, router]);
 
   return (
     <div className={s.checkoutCart}>
       <div className={s.basketItems}>
-        {basket.map((item) => (
-          <CheckoutCartProduct {...item} key={`${item.slug} ${item.size}`} />
-        ))}
+        {basket.length > 0 ? (
+          basket.map((item) => (
+            <CheckoutCartProduct {...item} key={`${item.slug} ${item.size}`} />
+          ))
+        ) : (
+          <span>No items in basket.</span>
+        )}
       </div>
       <div className={s.totals}>
         <div className={s.subtotal}>
