@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import CheckoutCart from "../../components/CheckoutCart/CheckoutCart";
 import CheckoutInfoForm from "../../components/CheckoutInfoForm/CheckoutInfoForm";
+import CheckoutTitle from "../../components/CheckoutTitle/CheckoutTitle";
 import s from "../../styles/pages/checkout-info.module.scss";
 
 const Information: NextPage & { checkout: boolean } = () => {
@@ -8,10 +9,7 @@ const Information: NextPage & { checkout: boolean } = () => {
     <div className={s.information}>
       <div className={s.left}>
         <div className={s.title}>
-          <div className={s.logo}>thursday boots</div>
-          <div className={s.breadcrumb}>
-            cart &gt; information &gt; shipping &gt; payment
-          </div>
+          <CheckoutTitle />
         </div>
 
         <div className={s.container}>
