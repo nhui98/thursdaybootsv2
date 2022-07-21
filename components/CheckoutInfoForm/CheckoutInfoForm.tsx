@@ -21,41 +21,37 @@ export default function CheckoutInfoForm() {
         console.log(values);
       }}
     >
-      <Form>
-        <div className={s.form}>
-          <div className={s.contactinfo}>
-            <div className={s.title}>
-              <span>Contact information</span>
-              <div>
-                <span>
-                  Already have an account?
-                  <Link href={"/login"}>
-                    <a className={s.login}>Log in</a>
-                  </Link>
-                </span>
-              </div>
-            </div>
-            <Input label="Email" name="email" type="text" />
+      <Form className={s.form}>
+        <div className={s.contactinfo}>
+          <div className={s.title}>
+            <span>Contact information</span>
+            <span>
+              Already have an account?
+              <Link href={"/login"}>
+                <a className={s.login}>Log in</a>
+              </Link>
+            </span>
           </div>
+          <Input label="Email" name="email" type="text" />
+        </div>
 
-          <div className={s.shippinginfo}>
-            <div className={s.title}>Shipping address</div>
-            <SelectInput
-              label="Country/Region"
-              name="country"
-              options={countryOptions}
-            />
-            <div className={s.two}>
-              <Input label="First name" name="firstName" type="text" />
-              <Input label="Last name" name="lastName" type="text" />
-            </div>
-            <Input label="Address" name="address" type="text" />
-            <div className={s.two}>
-              <Input label="City" name="city" type="text" />
-              <Input label="Postcode" name="postcode" type="text" />
-            </div>
-            <Input label="Phone" name="phone" type="text" />
+        <div className={s.shippinginfo}>
+          <div className={s.title}>Shipping address</div>
+          <SelectInput
+            label="Country/Region"
+            name="country"
+            options={countryOptions}
+          />
+          <div className={s.two}>
+            <Input label="First name" name="firstName" type="text" />
+            <Input label="Last name" name="lastName" type="text" />
           </div>
+          <Input label="Address" name="address" type="text" />
+          <div className={s.two}>
+            <Input label="City" name="city" type="text" />
+            <Input label="Postcode" name="postcode" type="text" />
+          </div>
+          <Input label="Phone" name="phone" type="text" />
         </div>
 
         <div className={s.footer}>

@@ -26,7 +26,7 @@ export default function CheckoutCart() {
         </div>
         <div className={s.shipping}>
           <span>Shipping + Duty</span>
-          <span>Calculated at next step</span>
+          <span className={s.message}>Calculated at next step</span>
         </div>
         <div className={s.total}>
           <span>Total</span>
@@ -69,7 +69,7 @@ const CheckoutCartProduct = ({
         <div className={s.title}>
           {style} | {color}
         </div>
-        <div className={s.size}>{size}</div>
+        <div className={s.size}>Size: {size}</div>
       </div>
       <div className={s.right}>
         <div className={s.price}>${price}</div>

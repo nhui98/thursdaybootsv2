@@ -1,39 +1,103 @@
 @use "../variables" as v;
 
 .information {
+  $side-padding: 0 2rem;
+
+  min-width: 300px;
   width: 100%;
   display: flex;
   min-height: 100vh;
 
-  .container {
+  .left {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-left: auto;
-    width: 50%;
-    padding: 3rem 2rem;
+    width: 55%;
+    row-gap: 3rem;
+    padding: 2rem 0;
 
-    .forms {
+    .title {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 35rem;
+      text-align: center;
+      padding: $side-padding;
       row-gap: 1rem;
-      width: 30rem;
 
       .logo {
         font-family: v.$logo-font;
         font-size: 3rem;
       }
+    }
 
-      form {
-        width: 100%;
+    .container {
+      display: none;
+      justify-content: center;
+      width: 100%;
+      background-color: v.$color-light-grey;
+
+      .cartSmall {
+        width: 40rem;
       }
+    }
+
+    .form {
+      display: flex;
+      width: 35rem;
+      padding: $side-padding;
     }
   }
 
-  .cart {
-    width: 50%;
+  .right {
+    width: 45%;
     background-color: v.$color-light-grey;
-    padding: 3rem 2rem;
+    padding: 2rem 0;
+
+    .cart {
+      padding: $side-padding;
+      width: 30rem;
+    }
   }
+}
+
+@media (max-width: 1280px) {
+  .information {
+    .left {
+      width: 100%;
+      align-items: center;
+
+      .title,
+      .form {
+        max-width: 40rem;
+        width: 100%;
+        min-width: 300px;
+        padding: 0 1rem;
+      }
+
+      .container {
+        display: flex;
+        padding: 2rem 1rem;
+      }
+    }
+
+    .right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .information {
+    .left {
+      .title {
+        .logo {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
 }

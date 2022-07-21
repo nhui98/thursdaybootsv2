@@ -1,14 +1,17 @@
 @use "../../styles/variables" as v;
 
-.checkoutCart {
+%flex-column {
   display: flex;
   flex-direction: column;
-  width: 25rem;
+}
+
+.checkoutCart {
+  @extend %flex-column;
+  width: 100%;
   row-gap: 2rem;
 
   .basketItems {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
 
     .card {
       display: flex;
@@ -46,11 +49,10 @@
       .details {
         display: flex;
         justify-content: space-between;
-        width: 20rem;
+        width: calc(100% - 5rem);
 
         .left {
-          display: flex;
-          flex-direction: column;
+          @extend %flex-column;
           justify-content: center;
 
           .title {
@@ -62,14 +64,14 @@
           display: flex;
           justify-content: flex-end;
           align-items: center;
+          padding-left: 1rem;
         }
       }
     }
   }
 
   .totals {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
     row-gap: 1rem;
 
     .subtotal,
@@ -77,6 +79,13 @@
     .total {
       display: flex;
       justify-content: space-between;
+    }
+
+    .shipping {
+      .message {
+        text-align: right;
+        padding-left: 1rem;
+      }
     }
 
     .total {
