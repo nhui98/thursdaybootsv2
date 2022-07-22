@@ -17,7 +17,7 @@
     padding: 2rem 0;
 
     .title {
-      width: 35rem;
+      width: 40rem;
       padding: $side-padding;
     }
 
@@ -26,15 +26,17 @@
       justify-content: center;
       width: 100%;
       background-color: v.$color-light-grey;
+      padding: 2rem 0rem;
 
       .cartSmall {
         width: 40rem;
+        padding: 0 1rem;
       }
     }
 
     .form {
       display: flex;
-      width: 35rem;
+      width: 40rem;
       padding: $side-padding;
     }
   }
@@ -67,7 +69,6 @@
 
       .container {
         display: flex;
-        padding: 2rem 1rem;
       }
     }
 
