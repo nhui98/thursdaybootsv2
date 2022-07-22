@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 import { AiFillLock, AiOutlineClose } from "react-icons/ai";
-import { useBasket } from "../../context/basket-context";
+import { useAppState } from "../../context/appContext";
 import { BasketProductType } from "../../context/basket.types";
 import s from "./Basket.module.scss";
 
@@ -12,8 +12,9 @@ export interface BasketProps {
 }
 
 export default function Basket({ basketActive, setBasketActive }: BasketProps) {
-  const { state } = useBasket();
-  const { basket, totalPrice } = state;
+  const { state } = useAppState();
+  const { basket } = state;
+  const { products, totalProductPrice } = basket;
   const router = useRouter();
 
   const checkoutHandler = () => {
@@ -31,15 +32,15 @@ export default function Basket({ basketActive, setBasketActive }: BasketProps) {
       </div>
 
       <div className={s.basketItems}>
-        {!(basket.length > 0) ? (
+        {!(products.length > 0) ? (
           <div>Basket empty</div>
         ) : (
-          basket.map((item) => (
+          products.map((item) => (
             <BasketItem {...item} key={`${item.slug}-${item.size}`} />
           ))
         )}
       </div>
-      {basket.length > 0 && (
+      {products.length > 0 && (
         <div className={s.footer}>
           <div className={s.shipping}>
             <span>Shipping</span>
@@ -47,7 +48,7 @@ export default function Basket({ basketActive, setBasketActive }: BasketProps) {
           </div>
           <div className={s.subtotal}>
             <span>Subtotal</span>
-            <span>${totalPrice}</span>
+            <span>${totalProductPrice}</span>
           </div>
           <button className={s.checkoutBtn} onClick={checkoutHandler}>
             <div className={s.lock}>
@@ -70,11 +71,11 @@ const BasketItem = ({
   size,
   slug,
 }: BasketProductType) => {
-  const { dispatch } = useBasket();
+  const { dispatch } = useAppState();
 
   const removeItemFromBasket = () => {
     dispatch({
-      type: "REMOVE",
+      type: "REMOVE_BASKET_ITEM",
       payload: {
         slug,
         size,

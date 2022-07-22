@@ -1,15 +1,16 @@
-import { useBasket } from "../../context/basket-context";
+import { useAppState } from "../../context/appContext";
 import s from "./CheckoutCart.module.scss";
 
 export default function CheckoutCart() {
-  const { state } = useBasket();
-  const { basket, totalPrice } = state;
+  const { state } = useAppState();
+  const { basket } = state;
+  const { products, totalProductPrice } = basket;
 
   return (
     <div className={s.checkoutCart}>
       <div className={s.basketItems}>
-        {basket.length > 0 ? (
-          basket.map((item) => (
+        {products.length > 0 ? (
+          products.map((item) => (
             <CheckoutCartProduct {...item} key={`${item.slug} ${item.size}`} />
           ))
         ) : (
@@ -19,7 +20,7 @@ export default function CheckoutCart() {
       <div className={s.totals}>
         <div className={s.subtotal}>
           <span>Subtotal</span>
-          <span>${totalPrice}</span>
+          <span>${totalProductPrice}</span>
         </div>
         <div className={s.shipping}>
           <span>Shipping + Duty</span>
@@ -29,7 +30,7 @@ export default function CheckoutCart() {
           <span>Total</span>
           <div className={s.wrapper}>
             <div className={s.currency}>USD</div>
-            <div className={s.price}>${totalPrice}</div>
+            <div className={s.price}>${totalProductPrice}</div>
           </div>
         </div>
       </div>

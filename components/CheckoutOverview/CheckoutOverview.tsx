@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useUser } from "../../context/user-context";
+import { useAppState } from "../../context/appContext";
 import s from "./CheckoutOverview.module.scss";
 
 export default function CheckoutOverview() {
-  const { state } = useUser();
-  const {
-    user: { email },
-    shippingAddress: { address, city, postcode, country },
-  } = state;
+  const { state } = useAppState();
+  const { user, deliveryAddress } = state;
+  const { email } = user;
+  const { address, city, postcode, country } = deliveryAddress;
+
   const router = useRouter();
   const routes = router.route.split("/checkout/");
   const route = routes[routes.length - 1];

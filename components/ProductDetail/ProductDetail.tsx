@@ -4,7 +4,7 @@ import {
   AiOutlineMinus,
   AiOutlinePlus,
 } from "react-icons/ai";
-import { useBasket } from "../../context/basket-context";
+import { useAppState } from "../../context/appContext";
 import s from "./ProductDetail.module.scss";
 
 export interface ProductDetailProps {
@@ -31,12 +31,12 @@ export default function ProductDetail({
 }: ProductDetailProps) {
   const [featuresActive, setFeaturesActive] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const { dispatch } = useBasket();
+  const { dispatch } = useAppState();
 
   const addToCart = () => {
     if (!selectedSize) return;
     dispatch({
-      type: "ADD",
+      type: "ADD_BASKET_ITEM",
       payload: {
         style,
         price,

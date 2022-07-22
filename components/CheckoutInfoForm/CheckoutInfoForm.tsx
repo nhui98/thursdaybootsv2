@@ -2,9 +2,8 @@ import { Form, Formik } from "formik";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import * as Yup from "yup";
-import { useBasket } from "../../context/basket-context";
-import { useUser } from "../../context/user-context";
-import { Dispatch } from "../../context/user.types";
+import { useAppState } from "../../context/appContext";
+import { Dispatch } from "../../context/appTypes";
 import Input, { SelectInput } from "../FormikComponents/Input";
 import s from "./CheckoutInfoForm.module.scss";
 
@@ -75,20 +74,22 @@ const onSubmit = (
   } = values;
 
   dispatch({
-    type: "UPDATE",
+    type: "UPDATE_USER",
     payload: {
-      user: {
-        firstName,
-        lastName,
-        email,
-      },
-      shippingAddress: {
-        country,
-        city,
-        postcode,
-        address,
-        phone,
-      },
+      firstName,
+      lastName,
+      email,
+    },
+  });
+
+  dispatch({
+    type: "UPDATE_DELIVERY_ADDRESS",
+    payload: {
+      address,
+      city,
+      country,
+      phone,
+      postcode,
     },
   });
 
@@ -96,17 +97,16 @@ const onSubmit = (
 };
 
 export default function CheckoutInfoForm() {
-  const { state: basketState } = useBasket();
-  const { state: userState, dispatch: userDispatch } = useUser();
-  const { user, shippingAddress } = userState;
-  const { basket } = basketState;
+  const { state, dispatch } = useAppState();
+  const { basket, user, deliveryAddress } = state;
+  const { products } = basket;
   const router = useRouter();
 
   return (
     <Formik
-      initialValues={initialValues({ ...user, ...shippingAddress })}
+      initialValues={initialValues({ ...user, ...deliveryAddress })}
       validationSchema={validationSchema}
-      onSubmit={(values) => onSubmit(values, userDispatch, router)}
+      onSubmit={(values) => onSubmit(values, dispatch, router)}
     >
       <Form className={s.form}>
         <div className={s.contactinfo}>
@@ -144,7 +144,7 @@ export default function CheckoutInfoForm() {
         <div className={s.footer}>
           <button
             type="submit"
-            disabled={basket.length === 0 ? true : false}
+            disabled={products.length === 0 ? true : false}
             className={s.nextStepBtn}
           >
             Continue To Shipping
