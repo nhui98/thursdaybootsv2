@@ -1,6 +1,6 @@
-@use "../variables" as v;
+@use "../../styles/variables" as v;
 
-.information {
+.checkout {
   $side-padding: 0 2rem;
 
   min-width: 300px;
@@ -52,7 +52,7 @@
 }
 
 @media (max-width: 1280px) {
-  .information {
+  .checkout {
     .left {
       width: 100%;
       align-items: center;
