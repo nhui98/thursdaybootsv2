@@ -1,0 +1,37 @@
+@use "../../styles/variables" as v;
+
+.deliveryForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+
+  .labelError {
+    display: flex;
+    justify-content: space-between;
+
+    .error {
+      color: #ed4337;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+  .nextStepBtn {
+    color: v.$color-white;
+    padding: 0.75rem 2rem;
+    background-color: v.$color-green;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    .nextStepBtn {
+      width: 100%;
+    }
+  }
+}
