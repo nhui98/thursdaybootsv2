@@ -36,6 +36,8 @@
 
     .form {
       display: flex;
+      flex-direction: column;
+      row-gap: 3rem;
       width: 40rem;
       padding: $side-padding;
     }

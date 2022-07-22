@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import CheckoutOverview from "../CheckoutOverview/CheckoutOverview";
 import CheckoutTitle from "../CheckoutTitle/CheckoutTitle";
 import s from "./CheckoutLayout.module.scss";
 
@@ -20,7 +21,10 @@ export default function CheckoutLayout({ left, right }: CheckoutLayoutProps) {
             <div className={s.cartSmall}>{right}</div>
           </div>
 
-          <div className={s.form}>{left}</div>
+          <div className={s.form}>
+            <CheckoutOverview />
+            {left}
+          </div>
         </div>
 
         <div className={s.right}>
