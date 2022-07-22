@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 import { AiFillLock, AiOutlineClose } from "react-icons/ai";
 import { useAppState } from "../../context/appContext";
-import { BasketProductType } from "../../context/basket.types";
+import { BasketProduct } from "../../context/appTypes";
 import s from "./Basket.module.scss";
 
 export interface BasketProps {
@@ -70,7 +70,7 @@ const BasketItem = ({
   quantity,
   size,
   slug,
-}: BasketProductType) => {
+}: BasketProduct) => {
   const { dispatch } = useAppState();
 
   const removeItemFromBasket = () => {
