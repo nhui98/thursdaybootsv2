@@ -36,7 +36,10 @@ export const SelectInput = ({
   ...rest
 }: SelectInputProps) => (
   <div className={s.formControl}>
-    <label htmlFor={name}>{label}</label>
+    <div className={s.labelError}>
+      <label htmlFor={name}>{label}</label>
+      <ErrorMessage name={name} component={"div"} className={s.error} />
+    </div>
     <Field as="select" id={name} name={name} {...rest}>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
@@ -45,5 +48,40 @@ export const SelectInput = ({
       ))}
     </Field>
     <ErrorMessage name={name} component={"div"} className="error" />
+  </div>
+);
+
+interface RadioInputProps {
+  label: string;
+  name: string;
+  options: {
+    key: string;
+    value: string;
+    price: number | string;
+  }[];
+}
+
+export const RadioInput = ({ name, options, ...rest }: RadioInputProps) => (
+  <div className={s.radio}>
+    <Field name={name} {...rest}>
+      {({ field }: any) => {
+        return options.map(({ key, price, value }) => (
+          <div className={s.radioOption} key={key}>
+            <input
+              type="radio"
+              id={value}
+              {...field}
+              value={value}
+              checked={field.value === value}
+            />
+            <label htmlFor={value}>{key}</label>
+            <div className={s.price}>
+              {typeof price === "string" ? "" : "$"}
+              {price}
+            </div>
+          </div>
+        ));
+      }}
+    </Field>
   </div>
 );

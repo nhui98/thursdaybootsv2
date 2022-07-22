@@ -29,6 +29,33 @@
   }
 }
 
+.radio {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid v.$color-grey;
+  padding: 1rem;
+  row-gap: 1rem;
+
+  .radioOption {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    label {
+      padding-left: 1rem;
+    }
+
+    .price {
+      margin-left: auto;
+      padding-left: 1rem;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .formControl {
     .labelError {
