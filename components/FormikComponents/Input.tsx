@@ -1,4 +1,6 @@
 import { ErrorMessage, Field } from "formik";
+import { SetStateAction } from "react";
+import { DeliveryFormtype } from "../CheckoutDelivery/CheckoutDelivery";
 import s from "./Input.module.scss";
 
 interface InputProps {
@@ -54,14 +56,27 @@ export const SelectInput = ({
 interface RadioInputProps {
   label: string;
   name: string;
+  setValues: (
+    // eslint-disable-next-line no-unused-vars
+    values: SetStateAction<DeliveryFormtype>,
+    // eslint-disable-next-line no-unused-vars
+    shouldValidate?: boolean | undefined
+  ) => void;
+  values: DeliveryFormtype;
   options: {
     key: string;
     value: string;
-    price: number | string;
+    price: number;
   }[];
 }
 
-export const RadioInput = ({ name, options, ...rest }: RadioInputProps) => (
+export const RadioInput = ({
+  name,
+  options,
+  setValues,
+  values,
+  ...rest
+}: RadioInputProps) => (
   <div className={s.radio}>
     <Field name={name} {...rest}>
       {({ field }: any) => {
@@ -73,12 +88,12 @@ export const RadioInput = ({ name, options, ...rest }: RadioInputProps) => (
               {...field}
               value={value}
               checked={field.value === value}
+              onClick={() => {
+                setValues({ ...values, deliveryPrice: price });
+              }}
             />
             <label htmlFor={value}>{key}</label>
-            <div className={s.price}>
-              {typeof price === "string" ? "" : "$"}
-              {price}
-            </div>
+            <div className={s.price}>{price === 0 ? "FREE" : `$${price}`}</div>
           </div>
         ));
       }}
