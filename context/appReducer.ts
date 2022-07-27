@@ -1,5 +1,6 @@
 import {
   addBasketItem,
+  clearBasket,
   hydrate,
   removeBasketItem,
   updateDeliveryAddress,
@@ -18,6 +19,9 @@ export function appReducer(state: State, action: Action) {
     }
     case "REMOVE_BASKET_ITEM": {
       return removeBasketItem(state, action.payload);
+    }
+    case "CLEAR_BASKET": {
+      return clearBasket(state);
     }
     case "UPDATE_USER": {
       return updateUser(state, action.payload);

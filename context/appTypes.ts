@@ -42,6 +42,7 @@ export type Action =
   | { type: "HYDRATE"; payload: State }
   | { type: "ADD_BASKET_ITEM"; payload: BasketProduct }
   | { type: "REMOVE_BASKET_ITEM"; payload: RemoveBasketItemPayloadType }
+  | { type: "CLEAR_BASKET" }
   | { type: "UPDATE_USER"; payload: UserState }
   | { type: "UPDATE_DELIVERY_ADDRESS"; payload: DeliveryAddressState }
   | { type: "UPDATE_SHIPPING_METHOD"; payload: DeliveryMethodState };

@@ -7,6 +7,12 @@ import {
   UserState,
 } from "./appTypes";
 
+export const hydrate = (payload: State) => {
+  return {
+    ...payload,
+  };
+};
+
 export const addBasketItem = (state: State, payload: BasketProduct) => {
   const { basket } = state;
   const { products, totalProductPrice } = basket;
@@ -73,6 +79,20 @@ export const removeBasketItem = (
   return setLocalStorage(returnObject);
 };
 
+export const clearBasket = (state: State) => {
+  console.log("called");
+
+  const returnObject = {
+    ...state,
+    basket: {
+      products: [],
+      totalProductPrice: 0,
+    },
+  };
+
+  return setLocalStorage(returnObject);
+};
+
 export const updateUser = (state: State, payload: UserState) => {
   const { user } = state;
 
@@ -119,12 +139,6 @@ export const updateShippingMethod = (
   };
 
   return setLocalStorage(returnObject);
-};
-
-export const hydrate = (payload: State) => {
-  return {
-    ...payload,
-  };
 };
 
 const setLocalStorage = (returnObject: State) => {

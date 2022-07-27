@@ -86,7 +86,8 @@ export default function Navbar({ home }: { home: boolean }) {
             >
               <BiShoppingBag />
               <span className={styles.counter}>
-                {products.reduce((acc, item) => acc + item.quantity, 0)}
+                {products &&
+                  products.reduce((acc, item) => acc + item.quantity, 0)}
               </span>
             </button>
           </div>
