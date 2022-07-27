@@ -1,16 +1,13 @@
 import { ErrorMessage, Form, Formik } from "formik";
-import { NextRouter, useRouter } from "next/router";
 import * as Yup from "yup";
 import { useAppState } from "../../context/appContext";
 import { Dispatch } from "../../context/appTypes";
+import { getStripeCheckout } from "../../lib/getStripeCheckout";
 import { RadioInput } from "../FormikComponents/Input";
 import s from "./CheckoutDelivery.module.scss";
 
 const deliveryOptions = [
   { key: "Standard Delivery", value: "Standard Delivery", price: 0 },
-  { key: "Standard Delivery2", value: "Standard Delivery2", price: 1 },
-  { key: "Standard Delivery3", value: "Standard Delivery3", price: 2 },
-  { key: "Standard Delivery4", value: "Standard Delivery4", price: 3 },
 ];
 
 export interface DeliveryFormtype {
@@ -29,8 +26,7 @@ const validationSchema = Yup.object({
 
 const onSubmit = (
   { deliveryOption, deliveryPrice }: DeliveryFormtype,
-  dispatch: Dispatch,
-  router: NextRouter
+  dispatch: Dispatch
 ) => {
   dispatch({
     type: "UPDATE_SHIPPING_METHOD",
@@ -39,21 +35,18 @@ const onSubmit = (
       deliveryPrice,
     },
   });
-
-  router.push("/checkout/payment");
 };
 
 export default function CheckoutDelivery() {
   const { state, dispatch } = useAppState();
   const { basket } = state;
   const { products } = basket;
-  const router = useRouter();
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => onSubmit(values, dispatch, router)}
+      onSubmit={(values) => onSubmit(values, dispatch)}
     >
       {({ setValues, values }) => (
         <Form className={s.deliveryForm}>
@@ -77,6 +70,7 @@ export default function CheckoutDelivery() {
               type="submit"
               disabled={products.length === 0 ? true : false}
               className={s.nextStepBtn}
+              onClick={() => getStripeCheckout(basket)}
             >
               Continue To Shipping
             </button>
