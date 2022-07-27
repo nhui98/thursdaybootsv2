@@ -1,0 +1,22 @@
+@use "../variables" as v;
+
+.confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  .success {
+    font-size: 4rem;
+    color: v.$color-green;
+  }
+
+  .link {
+    padding: 0.75rem 2rem;
+    background-color: v.$color-green;
+    color: v.$color-white;
+    border-radius: 10px;
+  }
+}
