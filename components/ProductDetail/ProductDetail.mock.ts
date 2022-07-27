@@ -54,4 +54,6 @@ export const MockProductDetailProps: ProductDetailProps = {
     "Durable Studded Rubber Outsoles",
     "Handcrafted with Integrity",
   ],
+  slug: "mens-boots-captain-matteblack",
+  image: "mens-boots-captain-matteblack-1.webp",
 };
